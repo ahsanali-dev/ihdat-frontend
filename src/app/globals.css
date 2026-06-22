@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAF6F0;
+  --foreground: #1E1E24;
+  --color-primary: #1E1E24;
+  --color-secondary: #FAF6F0;
+  --color-accent: #D4AF37;
+  --color-accent-hover: #B8962F;
+}
+
+@theme {
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, Cambria, serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  --color-primary: #1E1E24;
+  --color-secondary: #FAF6F0;
+  --color-accent: #D4AF37;
+  --color-accent-hover: #B8962F;
+}
+
+body {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+}
