@@ -1,109 +1,138 @@
 export const mockProducts = [
   {
     id: "prod-1",
-    name: "Zaman Knit Polo",
-    price: 4990,
-    category: "Shirts",
-    description: "A premium knitted polo shirt crafted from 100% fine organic cotton. Features a relaxed collar, subtle ribbed hem, and a breathable knit texture that elevates casual dressing.",
+    name: "Zari Embroidered Velvet Koti",
+    price: 6990,
+    category: "Women's Kotis",
+    description: "Handcrafted velvet short koti adorned with intricate gold Zari threadwork and floral motifs. Tailored to layer gracefully over plain or festive silk suits & kurtas.",
     images: [
-      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600",
-      "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?q=80&w=600",
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600"
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600",
+      "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=600"
     ],
-    colors: ["#FAF6F0", "#C2B280", "#8A9A86"], // Cream, Sand, Sage
-    colorNames: ["Cream", "Sand", "Sage"],
-    sizes: ["S", "M", "L", "XL"],
+    colors: ["#0B3C49", "#1E1E24", "#581825"],
+    colorNames: ["Peacock Teal", "Midnight Black", "Royal Maroon"],
+    sizes: ["S", "M", "L", "XL", "Custom"],
     stock: 25,
     isFeatured: true,
-    video: "https://player.vimeo.com/external/540092323.sd.mp4?s=80afcb9d658c14833214b6d3b455b85a3dc26f50&profile_id=165&oauth2_token_id=57447761",
+    video: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-in-a-gold-dress-41126-large.mp4",
   },
   {
     id: "prod-2",
-    name: "Asr Structured Jacket",
-    price: 9990,
-    category: "Outerwear",
-    description: "An elegant, double-breasted tailored jacket built with structured shoulders and custom gold-tone hardware. Crafted from a mid-weight wool blend for a timeless fit.",
-    images: [
-      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=600",
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600"
-    ],
-    colors: ["#1E1E24", "#3D5A50"], // Charcoal, Deep Forest
-    colorNames: ["Charcoal", "Deep Forest"],
-    sizes: ["M", "L", "XL"],
-    stock: 12,
-    isFeatured: true,
-    video: "https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf18e19e7a2bda8f2b3e4f6cb65f1cfb0b6cfb&profile_id=165&oauth2_token_id=57447761",
-  },
-  {
-    id: "prod-3",
-    name: "Sahar Linen Shirt",
-    price: 3990,
-    category: "Shirts",
-    description: "A lightweight, organic linen button-down shirt. Perfect for warm days, offering ultimate comfort and an easygoing drape. Pre-washed for extra softness.",
-    images: [
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600",
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600"
-    ],
-    colors: ["#FFFFFF", "#7097A8", "#C87A53"], // White, Sky Blue, Terracotta
-    colorNames: ["White", "Sky Blue", "Terracotta"],
-    sizes: ["S", "M", "L", "XL"],
-    stock: 40,
-    isFeatured: false,
-    video: "https://player.vimeo.com/external/540092323.sd.mp4?s=80afcb9d658c14833214b6d3b455b85a3dc26f50&profile_id=165&oauth2_token_id=57447761",
-  },
-  {
-    id: "prod-4",
-    name: "Eesa Oversized Hoodie",
+    name: "Brocade Silk Crop Waistcoat",
     price: 5490,
-    category: "Activewear",
-    description: "Heavyweight 450GSM loopback cotton hoodie. Double-lined hood without drawstrings for a clean, minimalist silhouette. Designed with dropped shoulders.",
+    category: "Women's Kotis",
+    description: "A modern cropped waist-length koti crafted in woven Banarsi brocade with subtle metallic golden thread detailing and dori tassel tie closure.",
     images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600",
-      "https://images.unsplash.com/photo-1556821840-416b0864380f?q=80&w=600"
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600",
+      "https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=600"
     ],
-    colors: ["#09090B", "#B8A390"], // Jet Black, Warm Taupe
-    colorNames: ["Jet Black", "Warm Taupe"],
+    colors: ["#D4AF37", "#FAF6F0", "#8A2B06"],
+    colorNames: ["Emerald Gold", "Antique Ivory", "Rust Red"],
     sizes: ["S", "M", "L", "XL"],
     stock: 18,
     isFeatured: true,
-    video: "https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf18e19e7a2bda8f2b3e4f6cb65f1cfb0b6cfb&profile_id=165&oauth2_token_id=57447761",
+    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-modeling-a-black-dress-41125-large.mp4",
+  },
+  {
+    id: "prod-3",
+    name: "Junior Silk Jacquard Koti",
+    price: 3990,
+    category: "Kids' Waistcoats",
+    description: "Charming handcrafted silk jacquard waistcoat designed for young girls & children wearing kurtas. Lightweight breathable lining with delicate gold tilla borders.",
+    images: [
+      "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600",
+      "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600"
+    ],
+    colors: ["#E8B4B8", "#679436", "#FAF6F0"],
+    colorNames: ["Blush Pink", "Olive Mint", "Ivory Gold"],
+    sizes: ["2-4Y", "4-6Y", "6-8Y", "8-10Y", "10-12Y"],
+    stock: 30,
+    isFeatured: true,
+    video: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-in-a-gold-dress-41126-large.mp4",
+  },
+  {
+    id: "prod-4",
+    name: "Mirror-Work Festive Koti",
+    price: 7990,
+    category: "Women's Kotis",
+    description: "Exquisite handmade mirror-work embroidered short jacket koti. Adds an instant festive statement over eastern dresses, kurtis, and unstitched suits.",
+    images: [
+      "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=600",
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600"
+    ],
+    colors: ["#1D3557", "#D4AF37", "#7D1D2B"],
+    colorNames: ["Royal Indigo", "Mustard Gold", "Crimson Maroon"],
+    sizes: ["S", "M", "L", "XL", "Custom"],
+    stock: 15,
+    isFeatured: true,
+    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-modeling-a-black-dress-41125-large.mp4",
   },
   {
     id: "prod-5",
-    name: "Qalam Pleated Trousers",
-    price: 5990,
-    category: "Pants",
-    description: "Tailored trousers featuring double front pleats and a relaxed, straight-leg cut. Includes side adjusters and a hidden button closure for a smooth waistband.",
+    name: "Kids Royal Velvet Waistcoat",
+    price: 4490,
+    category: "Kids' Waistcoats",
+    description: "Plush velvet short jacket trimmed with antique golden gota work and silk tie strings, crafted for kids' festive celebrations.",
     images: [
-      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600",
-      "https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600",
-      "https://images.unsplash.com/photo-1506629082925-63d6314a3389?q=80&w=600"
+      "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?q=80&w=600",
+      "https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=600"
     ],
-    colors: ["#3F2E27", "#D4C5B9"], // Espresso, Sand
-    colorNames: ["Espresso", "Sand"],
-    sizes: ["30", "32", "34", "36"],
-    stock: 15,
+    colors: ["#1B263B", "#7D1D2B", "#2D6A4F"],
+    colorNames: ["Royal Navy", "Deep Wine", "Forest Green"],
+    sizes: ["2-4Y", "4-6Y", "6-8Y", "8-10Y"],
+    stock: 22,
+    isFeatured: false,
+    video: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-in-a-gold-dress-41126-large.mp4",
+  },
+  {
+    id: "prod-6",
+    name: "Bespoke Hand-Embroidered Cape",
+    price: 9990,
+    category: "Custom Jackets",
+    description: "Custom-made tailored ethnic cape jacket featuring hand-stitched sequins, dabka, and tilla embroidery. Crafted to custom measurements for weddings and special events.",
+    images: [
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600"
+    ],
+    colors: ["#1E1E24", "#D4AF37"],
+    colorNames: ["Noir Gold", "Champagne Gold"],
+    sizes: ["Custom Fit", "S", "M", "L", "XL"],
+    stock: 10,
+    isFeatured: true,
+    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-modeling-a-black-dress-41125-large.mp4",
+  },
+  {
+    id: "prod-7",
+    name: "Raw Silk Pearl Waistcoat",
+    price: 6490,
+    category: "Women's Kotis",
+    description: "Pure raw silk waistcoat highlighted with delicate hand-attached pearls and a graceful front dori latkan. Perfect overlay for formal kurtis.",
+    images: [
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600",
+      "https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=600"
+    ],
+    colors: ["#FAF6F0", "#D4AF37", "#A3C1AD"],
+    colorNames: ["Ivory White", "Sand Gold", "Sage Mint"],
+    sizes: ["S", "M", "L", "XL"],
+    stock: 20,
     isFeatured: false,
     video: "https://player.vimeo.com/external/540092323.sd.mp4?s=80afcb9d658c14833214b6d3b455b85a3dc26f50&profile_id=165&oauth2_token_id=57447761",
   },
   {
-    id: "prod-6",
-    name: "Mihrab Silk Scarf",
-    price: 2990,
-    category: "Accessories",
-    description: "A luxury square scarf printed on 100% pure mulberry silk. Featuring abstract geometric patterns inspired by ancient architecture and finished with hand-rolled edges.",
+    id: "prod-8",
+    name: "Bespoke Silk Pret Suit & Koti Set",
+    price: 12990,
+    category: "Apparel & Suits",
+    description: "Extensible Pret collection preview — A 2-piece raw silk suit bundled with a matching hand-embroidered velvet koti. Tailored for special occasions.",
     images: [
-      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600",
-      "https://images.unsplash.com/photo-1584030373081-f37b7bb4fa8e?q=80&w=600",
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600"
+      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600"
     ],
-    colors: ["#D4AF37", "#7D1D2B"], // Antique Gold, Crimson
-    colorNames: ["Antique Gold", "Crimson"],
-    sizes: ["One Size"],
-    stock: 50,
+    colors: ["#1E1E24", "#7D1D2B"],
+    colorNames: ["Classic Jet", "Maroon Velvet"],
+    sizes: ["S", "M", "L", "Custom"],
+    stock: 8,
     isFeatured: true,
     video: "https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf18e19e7a2bda8f2b3e4f6cb65f1cfb0b6cfb&profile_id=165&oauth2_token_id=57447761",
   }
@@ -113,8 +142,8 @@ export const mockOrders = [
   {
     id: "ORD-9481",
     customer: {
-      name: "Ali Ahmed",
-      email: "ali@example.com",
+      name: "Fatima Noor",
+      email: "fatima@example.com",
       phone: "+92 300 1234567",
       address: "House 12, Street 3, F-8/2",
       city: "Islamabad",
@@ -123,24 +152,24 @@ export const mockOrders = [
     items: [
       {
         productId: "prod-1",
-        name: "Zaman Knit Polo",
-        price: 4990,
-        color: "Cream",
+        name: "Zari Embroidered Velvet Koti",
+        price: 6990,
+        color: "Peacock Teal",
         size: "M",
-        quantity: 2,
-        image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600"
+        quantity: 1,
+        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600"
       },
       {
-        productId: "prod-6",
-        name: "Mihrab Silk Scarf",
-        price: 2990,
-        color: "Antique Gold",
-        size: "One Size",
+        productId: "prod-3",
+        name: "Junior Silk Jacquard Koti",
+        price: 3990,
+        color: "Blush Pink",
+        size: "4-6Y",
         quantity: 1,
-        image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600"
+        image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600"
       }
     ],
-    totalAmount: 12970, // (4990 * 2) + 2990
+    totalAmount: 10980,
     status: "Pending",
     createdAt: "2026-06-21T10:15:30Z"
   },
@@ -156,13 +185,13 @@ export const mockOrders = [
     },
     items: [
       {
-        productId: "prod-2",
-        name: "Asr Structured Jacket",
+        productId: "prod-6",
+        name: "Bespoke Hand-Embroidered Cape",
         price: 9990,
-        color: "Charcoal",
-        size: "L",
+        color: "Noir Gold",
+        size: "Custom",
         quantity: 1,
-        image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=600"
+        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600"
       }
     ],
     totalAmount: 9990,
@@ -181,137 +210,24 @@ export const mockOrders = [
     },
     items: [
       {
-        productId: "prod-3",
-        name: "Sahar Linen Shirt",
-        price: 3990,
-        color: "White",
+        productId: "prod-2",
+        name: "Brocade Silk Crop Waistcoat",
+        price: 5490,
+        color: "Emerald Gold",
         size: "S",
         quantity: 1,
-        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600"
-      },
-      {
-        productId: "prod-5",
-        name: "Qalam Pleated Trousers",
-        price: 5990,
-        color: "Espresso",
-        size: "32",
-        quantity: 1,
-        image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600"
+        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600"
       }
     ],
-    totalAmount: 9980, // 3990 + 5990
+    totalAmount: 5490,
     status: "Shipped",
     createdAt: "2026-06-20T14:45:00Z"
-  },
-  {
-    id: "ORD-1122",
-    customer: {
-      name: "Bilal Tariq",
-      email: "bilal@example.com",
-      phone: "+92 300 9876543",
-      address: "House 45, Sector G-11/1",
-      city: "Islamabad",
-      postalCode: "44000"
-    },
-    items: [
-      {
-        productId: "prod-4",
-        name: "Zaman Knit Hoodie",
-        price: 4990,
-        color: "Olive",
-        size: "M",
-        quantity: 1,
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600"
-      }
-    ],
-    totalAmount: 4990,
-    status: "Delivered",
-    createdAt: "2026-06-21T18:20:00Z"
-  },
-  {
-    id: "ORD-3344",
-    customer: {
-      name: "Mariam Yusuf",
-      email: "mariam@example.com",
-      phone: "+92 321 4561230",
-      address: "Apartment 12, Cavalry Ground",
-      city: "Lahore",
-      postalCode: "54000"
-    },
-    items: [
-      {
-        productId: "prod-6",
-        name: "Mihrab Silk Scarf",
-        price: 2990,
-        color: "Antique Gold",
-        size: "One Size",
-        quantity: 2,
-        image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600"
-      }
-    ],
-    totalAmount: 5980,
-    status: "Pending",
-    createdAt: "2026-06-22T09:10:00Z"
-  },
-  {
-    id: "ORD-5566",
-    customer: {
-      name: "Hamza Niaz",
-      email: "hamza@example.com",
-      phone: "+92 333 1234567",
-      address: "Street 5, Askari 5",
-      city: "Rawalpindi",
-      postalCode: "46000"
-    },
-    items: [
-      {
-        productId: "prod-1",
-        name: "Zaman Knit Polo",
-        price: 4990,
-        color: "Cream",
-        size: "L",
-        quantity: 1,
-        image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600"
-      }
-    ],
-    totalAmount: 4990,
-    status: "Cancelled",
-    createdAt: "2026-06-22T11:40:00Z"
-  },
-  {
-    id: "ORD-7788",
-    customer: {
-      name: "Sana Malik",
-      email: "sana@example.com",
-      phone: "+92 301 7654321",
-      address: "House 204, Phase 3, DHA",
-      city: "Karachi",
-      postalCode: "75500"
-    },
-    items: [
-      {
-        productId: "prod-2",
-        name: "Asr Structured Jacket",
-        price: 9990,
-        color: "Charcoal",
-        size: "M",
-        quantity: 1,
-        image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=600"
-      }
-    ],
-    totalAmount: 9990,
-    status: "Processing",
-    createdAt: "2026-06-22T13:15:00Z"
   }
 ];
 
 export const mockUsers = [
-  { id: "usr-1", name: "Ali Ahmed", email: "ali@example.com", role: "customer", registeredAt: "2026-04-12" },
+  { id: "usr-1", name: "Fatima Noor", email: "fatima@example.com", role: "customer", registeredAt: "2026-04-12" },
   { id: "usr-2", name: "Ayesha Khan", email: "ayesha@example.com", role: "customer", registeredAt: "2026-05-18" },
   { id: "usr-3", name: "Zainab Malik", email: "zainab@example.com", role: "customer", registeredAt: "2026-06-01" },
-  { id: "usr-4", name: "Admin Ihdat", email: "admin@ihdat.com", role: "admin", registeredAt: "2026-01-01" },
-  { id: "usr-5", name: "Bilal Tariq", email: "bilal@example.com", role: "customer", registeredAt: "2026-06-05" },
-  { id: "usr-6", name: "Mariam Yusuf", email: "mariam@example.com", role: "customer", registeredAt: "2026-06-10" },
-  { id: "usr-7", name: "Hamza Niaz", email: "hamza@example.com", role: "customer", registeredAt: "2026-06-12" },
-  { id: "usr-8", name: "Sana Malik", email: "sana@example.com", role: "customer", registeredAt: "2026-06-15" }
+  { id: "usr-4", name: "Admin Ihdat", email: "admin@ihdat.com", role: "admin", registeredAt: "2026-01-01" }
 ];

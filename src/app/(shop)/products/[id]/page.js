@@ -137,11 +137,13 @@ export default function ProductDetailPage({ params }) {
           >
             {activeImage === product.video ? (
               <video
+                key={activeImage}
                 src={activeImage}
                 autoPlay
                 loop
                 muted
                 playsInline
+                controls
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
             ) : (
@@ -320,9 +322,9 @@ export default function ProductDetailPage({ params }) {
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#111111]">
                   Select Size:
                 </span>
-                <a href="#" className="text-[10px] uppercase font-bold text-[#C5A880] tracking-wider hover:underline">
+                <Link href="/size-guide" className="text-[10px] uppercase font-bold text-[#C5A880] tracking-wider hover:underline">
                   Size Guide
-                </a>
+                </Link>
               </div>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size) => (

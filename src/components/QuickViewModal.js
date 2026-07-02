@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { quickViewActions } from "@/store/slices/quickViewSlice";
 import { cartActions } from "@/store/slices/cartSlice";
-import { X, ShoppingBag, Info } from "lucide-react";
+import { X, ShoppingBag, Info, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -119,7 +119,18 @@ export default function QuickViewModal() {
 
               {/* Left Column: Visual Gallery */}
               <div className="relative aspect-3/4 md:aspect-auto bg-[#E4E4E7]/40 flex items-center justify-center overflow-hidden border-r border-[#E4E4E7]/20">
-                {activeImage ? (
+                {activeImage === product.video ? (
+                  <video
+                    key={activeImage}
+                    src={activeImage}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    className="absolute inset-0 h-full w-full object-cover object-center z-10"
+                  />
+                ) : activeImage ? (
                   <Image
                     src={activeImage}
                     alt={product.name}
@@ -133,9 +144,64 @@ export default function QuickViewModal() {
                 )}
 
                 {/* Subtitle tag */}
-                <span className="absolute bottom-4 left-4 bg-[#FAF6F0]/90 backdrop-blur-xs text-[9px] font-bold uppercase tracking-widest px-3 py-1 border border-[#1E1E24]/10 shadow-2xs">
+                <span className="absolute top-4 left-4 bg-[#FAF6F0]/90 backdrop-blur-xs text-[9px] font-bold uppercase tracking-widest px-3 py-1 border border-[#1E1E24]/10 shadow-2xs z-20">
                   {product.category}
                 </span>
+
+                {/* Thumbnail Strip Overlay */}
+                {(() => {
+                  const mediaList = product.images ? [...product.images] : [];
+                  if (product.video && !mediaList.includes(product.video)) {
+                    mediaList.push(product.video);
+                  }
+
+                  if (mediaList.length <= 1) return null;
+
+                  return (
+                    <div className="absolute bottom-4 inset-x-4 flex items-center justify-center space-x-2 z-20 bg-black/40 backdrop-blur-xs p-2 border border-white/20">
+                      {mediaList.map((mediaUrl, idx) => {
+                        const isVideo = mediaUrl === product.video;
+                        const isSelected = activeImage === mediaUrl;
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveImage(mediaUrl);
+                            }}
+                            className={`relative h-12 w-10 overflow-hidden border transition-all cursor-pointer ${
+                              isSelected
+                                ? "border-[#D4AF37] ring-2 ring-[#D4AF37] scale-105"
+                                : "border-white/40 opacity-75 hover:opacity-100"
+                            }`}
+                          >
+                            {isVideo ? (
+                              <div className="w-full h-full bg-black flex items-center justify-center relative">
+                                <Image
+                                  src={product.images?.[0] || "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600"}
+                                  alt="Video thumbnail"
+                                  fill
+                                  sizes="40px"
+                                  className="object-cover brightness-60"
+                                />
+                                <Play className="h-4 w-4 text-white fill-white relative z-10" />
+                              </div>
+                            ) : (
+                              <Image
+                                src={mediaUrl}
+                                alt={`Thumbnail ${idx + 1}`}
+                                fill
+                                sizes="40px"
+                                className="object-cover object-center"
+                              />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Right Column: Garment Specs Form */}
@@ -190,9 +256,18 @@ export default function QuickViewModal() {
 
                   {/* Size selector */}
                   <div className="space-y-2">
-                    <span className="text-xs font-semibold uppercase tracking-wider block">
-                      Size:
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-wider block">
+                        Size:
+                      </span>
+                      <Link
+                        href="/size-guide"
+                        onClick={() => dispatch(quickViewActions.closeQuickView())}
+                        className="text-[10px] uppercase font-bold text-[#C5A880] tracking-wider hover:underline"
+                      >
+                        Size Guide
+                      </Link>
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {product.sizes.map((size) => (
                         <button

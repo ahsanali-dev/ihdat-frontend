@@ -31,18 +31,18 @@ export default function HomePage() {
     <div className="space-y-28 pb-24 overflow-x-hidden">
       {/* 1. Hero Section */}
       <section className="relative h-[92vh] flex items-center justify-center bg-[#111111] text-white overflow-hidden">
-        {/* Full-bleed Luxury Unsplash Visual */}
+        {/* Full-bleed Luxury Ethnic Koti Visual featuring female model in embroidered jacket */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none">
           <Image
-            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600"
-            alt="ihdat Summer Collection Banner"
+            src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1600"
+            alt="ihdat Women & Kids Ethnic Kotis Banner"
             fill
             priority
             sizes="100vw"
             className="object-cover object-center brightness-45 contrast-[1.05] scale-102 transition-transform duration-1000"
           />
           {/* Ambient gradient overlay */}
-          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-[#FAF6F0]/5" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/50 via-transparent to-[#FAF6F0]/10" />
           <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-white/10 to-transparent" />
         </div>
         
@@ -54,13 +54,13 @@ export default function HomePage() {
             className="space-y-5"
           >
             <p className="text-[10px] uppercase tracking-[0.45em] text-[#C5A880] font-bold">
-              summer journal 2026
+              Women & Kids Festive Kotis 2026
             </p>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-extralight tracking-[0.2em] leading-none uppercase text-white drop-shadow-xs">
               ihdat
             </h1>
-            <p className="text-xs md:text-sm max-w-lg mx-auto font-light text-gray-200/90 tracking-[0.15em] leading-relaxed">
-              An expression of pure visual form and minimal aesthetics, tailoring organic fibers into timeless silhouettes.
+            <p className="text-xs md:text-sm max-w-xl mx-auto font-light text-gray-200/90 tracking-[0.15em] leading-relaxed">
+              Bespoke handcrafted Kotis, Waistcoats & Ethnic Overlay Jackets for Women & Children. Designed to layer gracefully over any formal suit or kurti.
             </p>
           </motion.div>
 
@@ -71,16 +71,16 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
           >
             <Link
-              href="/products"
+              href="/products?category=Women%27s%20Kotis"
               className="px-10 py-4 border border-transparent text-[10px] font-bold uppercase tracking-widest text-black bg-[#C5A880] hover:bg-white hover:text-black transition-colors w-full sm:w-auto shadow-md"
             >
-              Explore Collection
+              Explore Women's Kotis
             </Link>
             <Link
-              href="/products?category=Outerwear"
+              href="/products?category=Kids%27%20Waistcoats"
               className="px-10 py-4 border border-white/80 text-[10px] font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all w-full sm:w-auto"
             >
-              View Outerwear
+              Kids Waistcoats
             </Link>
           </motion.div>
         </div>
@@ -91,14 +91,14 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-16">
           <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#C5A880]">
-            curated focus
+            specialized focus
           </span>
           <h2 className="font-serif text-3xl font-light tracking-widest uppercase text-black">
-            Curated Categories
+            Curated Collections
           </h2>
           <div className="h-[1px] w-20 bg-[#C5A880] mx-auto" />
           <p className="text-xs text-[#71717A] tracking-wider">
-            Explore our thoughtfully compiled capsule collections
+            Explore handcrafted ethnic kotis, kids waistcoats, and custom outerwear
           </p>
         </div>
 
@@ -109,14 +109,14 @@ export default function HomePage() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          {/* Category 1 */}
+          {/* Category 1: Women's Kotis */}
           <motion.div
             variants={fadeInUp}
             className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100"
           >
             <Image
-              src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600"
-              alt="Shirts & Polo Category"
+              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600"
+              alt="Women's Ethnic Kotis Collection"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-50 z-0"
@@ -124,37 +124,37 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/45 to-transparent z-10" />
             
             <div className="absolute top-8 left-8 flex space-x-2 z-20">
-              <span className="h-6 w-6 rounded-full bg-[#FAF6F0] border border-white/20 shadow-xs" />
-              <span className="h-6 w-6 rounded-full bg-[#7097A8] border border-white/20 shadow-xs" />
+              <span className="h-6 w-6 rounded-full bg-[#0B3C49] border border-white/20 shadow-xs" />
+              <span className="h-6 w-6 rounded-full bg-[#D4AF37] border border-white/20 shadow-xs" />
             </div>
 
             <div className="relative z-20 space-y-3">
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C5A880]">
-                Essentials
+                Her Collection
               </span>
               <h3 className="font-serif text-2xl font-light tracking-wide uppercase">
-                Shirts & Polo
+                Women's Kotis
               </h3>
               <p className="text-xs text-[#A1A1AA] font-light max-w-xs leading-relaxed">
-                Lightweight fabrics, clean cuts, and fine-knit organic cotton styles.
+                Zari embroidered velvet, Banarsi brocade, and mirror-work waistcoats for suits & kurtis.
               </p>
               <Link
-                href="/products?category=Shirts"
+                href="/products?category=Women%27s%20Kotis"
                 className="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-white hover:text-[#C5A880] pt-2"
               >
-                Browse Now <ArrowRight className="h-3 w-3 ml-2 transition-transform group-hover:translate-x-1" />
+                Browse Collection <ArrowRight className="h-3 w-3 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.div>
 
-          {/* Category 2 */}
+          {/* Category 2: Kids' Waistcoats */}
           <motion.div
             variants={fadeInUp}
             className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100"
           >
             <Image
-              src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=600"
-              alt="Outerwear Category"
+              src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600"
+              alt="Kids' Ethnic Waistcoats Category"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-50 z-0"
@@ -162,37 +162,37 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent z-10" />
 
             <div className="absolute top-8 left-8 flex space-x-2 z-20">
-              <span className="h-6 w-6 rounded-full bg-[#1E1E24] border border-white/20 shadow-xs" />
-              <span className="h-6 w-6 rounded-full bg-[#3D5A50] border border-white/20 shadow-xs" />
+              <span className="h-6 w-6 rounded-full bg-[#E8B4B8] border border-white/20 shadow-xs" />
+              <span className="h-6 w-6 rounded-full bg-[#1B263B] border border-white/20 shadow-xs" />
             </div>
 
             <div className="relative z-20 space-y-3">
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C5A880]">
-                Tailored
+                Junior Edition
               </span>
               <h3 className="font-serif text-2xl font-light tracking-wide uppercase">
-                Outerwear
+                Kids' Waistcoats
               </h3>
               <p className="text-xs text-[#A1A1AA] font-light max-w-xs leading-relaxed">
-                Structured blazers, jackets, and protective mid-layers designed for durability.
+                Festive jacquard silk kotis and soft velvet waistcoats designed for children.
               </p>
               <Link
-                href="/products?category=Outerwear"
+                href="/products?category=Kids%27%20Waistcoats"
                 className="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-white hover:text-[#C5A880] pt-2"
               >
-                Browse Now <ArrowRight className="h-3 w-3 ml-2 transition-transform group-hover:translate-x-1" />
+                Browse Kids <ArrowRight className="h-3 w-3 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.div>
 
-          {/* Category 3 */}
+          {/* Category 3: Custom Jackets */}
           <motion.div
             variants={fadeInUp}
             className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100"
           >
             <Image
-              src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600"
-              alt="Accessories Category"
+              src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600"
+              alt="Custom Jackets Category"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-50 z-0"
@@ -201,24 +201,24 @@ export default function HomePage() {
 
             <div className="absolute top-8 left-8 flex space-x-2 z-20">
               <span className="h-6 w-6 rounded-full bg-[#D4AF37] border border-white/20 shadow-xs" />
-              <span className="h-6 w-6 rounded-full bg-[#7D1D2B] border border-white/20 shadow-xs" />
+              <span className="h-6 w-6 rounded-full bg-[#1E1E24] border border-white/20 shadow-xs" />
             </div>
 
             <div className="relative z-20 space-y-3">
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C5A880]">
-                Finishing
+                Bespoke Order
               </span>
               <h3 className="font-serif text-2xl font-light tracking-wide uppercase">
-                Accessories
+                Custom Jackets
               </h3>
               <p className="text-xs text-[#A1A1AA] font-light max-w-xs leading-relaxed">
-                Handcrafted mulberry silk scarves and elements to refine your aesthetic.
+                Hand-embroidered capes and custom-fitted waistcoats tailored to your exact fit.
               </p>
               <Link
-                href="/products?category=Accessories"
+                href="/products?category=Custom%20Jackets"
                 className="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-white hover:text-[#C5A880] pt-2"
               >
-                Browse Now <ArrowRight className="h-3 w-3 ml-2 transition-transform group-hover:translate-x-1" />
+                Custom Orders <ArrowRight className="h-3 w-3 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.div>
@@ -228,12 +228,12 @@ export default function HomePage() {
       {/* 3. Editorial Story / Lookbook Collage */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Left: Asymmetric Image Block */}
+          {/* Left: Asymmetric Image Block featuring female model and kids waistcoat */}
           <div className="lg:col-span-7 grid grid-cols-12 gap-4">
             <div className="col-span-8 relative aspect-[3/4] overflow-hidden group shadow-md border border-gray-100">
               <Image
-                src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600"
-                alt="ihdat editorial portrait"
+                src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600"
+                alt="ihdat female model in velvet koti"
                 fill
                 sizes="(max-width: 1024px) 60vw, 40vw"
                 className="object-cover object-center transition-transform duration-1000 group-hover:scale-103"
@@ -241,8 +241,8 @@ export default function HomePage() {
             </div>
             <div className="col-span-4 relative aspect-3/4 mt-12 overflow-hidden group shadow-sm border border-gray-100">
               <Image
-                src="https://images.unsplash.com/photo-1584030373081-f37b7bb4fa8e?q=80&w=600"
-                alt="Fabric and texture closeup"
+                src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600"
+                alt="Kids ethnic waistcoat design"
                 fill
                 sizes="(max-width: 1024px) 30vw, 20vw"
                 className="object-cover object-center transition-transform duration-1000 group-hover:scale-103"
@@ -256,14 +256,14 @@ export default function HomePage() {
               editorial journal
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-light tracking-wide uppercase text-black leading-tight">
-              The Art of <br /> Slow Silhouettes
+              The Art of <br /> Layered Elegance
             </h2>
             <div className="h-[1px] w-20 bg-[#C5A880]" />
             <p className="text-xs text-[#71717A] leading-relaxed tracking-wider">
-              Our designs capture the silent luxury of simplicity. Crafted in Pakistan, each piece in the Summer 2026 Collection utilizes organic cotton, bespoke linen, and fine artisan blends designed to breathe under the regional heat.
+              Our designs capture the silent luxury of traditional layering. Crafted with hand-embroidered Zari, mirror-work, and fine velvet, each koti and waistcoat is styled to elevate formal kurtas & suits.
             </p>
             <p className="text-xs text-[#71717A] leading-relaxed tracking-wider">
-              From our signature knit polos to tailored pleated trousers, the selection focuses on versatility, neutral color tones, and structures that outlast seasonal trends.
+              Focused primarily on custom waistcoats & Kotis for Women and Children, ihdat builds timeless wardrobe overlays — with ready architectural expansion for full festive Pret & unstitched apparel.
             </p>
             <div className="pt-4">
               <Link
@@ -282,17 +282,17 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16">
           <div className="space-y-3">
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C5A880]">
-              editor&apos;s choice
+              artisan selection
             </span>
             <h2 className="font-serif text-3xl font-light tracking-widest uppercase text-black">
-              Featured Items
+              Featured Kotis & Waistcoats
             </h2>
           </div>
           <Link
             href="/products"
             className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-[#111111] hover:text-[#C5A880] pt-4 sm:pt-0 transition-colors border-b border-[#111111] pb-1 hover:border-[#C5A880]"
           >
-            View All Products
+            View All Collections
           </Link>
         </div>
 
@@ -300,7 +300,7 @@ export default function HomePage() {
           <div className="text-center py-16 bg-white border border-[#E4E4E7]/40 p-8 shadow-xs space-y-3">
             <p className="text-sm font-medium text-gray-500 tracking-wider">No featured products available at the moment.</p>
             <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed">
-              We are updating our catalog. Please check back soon or visit the catalog to view other options.
+              We are updating our handcrafted catalog. Please check back soon or visit the catalog to view options.
             </p>
           </div>
         ) : (
@@ -317,7 +317,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center space-y-2">
             <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-[#C5A880]">
-              closet foundations
+              artisanal craft
             </span>
             <h2 className="font-serif text-2xl font-light tracking-widest uppercase text-black">
               Spotlight Details
@@ -327,24 +327,24 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               {
-                url: "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?q=80&w=600",
-                title: "Premium Knits",
-                desc: "100% fine organic cotton yarn"
+                url: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600",
+                title: "Zari & Dori Ties",
+                desc: "Gold thread & tassel closures"
               },
               {
-                url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600",
-                title: "Structured Layers",
-                desc: "Custom weight blends"
+                url: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600",
+                title: "Plush Velvet & Brocade",
+                desc: "Rich luxury woven fabrics"
               },
               {
-                url: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600",
-                title: "Neutral Hues",
-                desc: "Classic natural dyes"
+                url: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600",
+                title: "Kids Festive Fit",
+                desc: "Soft lining for children"
               },
               {
-                url: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600",
-                title: "Bespoke Silk",
-                desc: "Hand-finished scarves"
+                url: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600",
+                title: "Bespoke Tailoring",
+                desc: "Custom sizing for suits"
               }
             ].map((spot, idx) => (
               <div key={idx} className="group relative aspect-[4/5] bg-gray-150 overflow-hidden shadow-xs border border-gray-200/40">
@@ -374,10 +374,10 @@ export default function HomePage() {
                 <Sparkles className="h-6 w-6" />
               </div>
               <h3 className="text-base font-serif uppercase tracking-widest text-[#FAF6F0]">
-                Artisanal Quality
+                Artisanal Embroidery
               </h3>
               <p className="text-xs text-[#71717A] max-w-xs leading-relaxed tracking-wider">
-                Every line, fold, and button is carefully designed. We use organic wools and custom linens of the highest caliber.
+                Hand-stitched Zari, tilla, mirror-work, and gota trims crafted by master artisans in Pakistan.
               </p>
             </div>
             <div className="space-y-4 flex flex-col items-center">
@@ -385,10 +385,10 @@ export default function HomePage() {
                 <Shield className="h-6 w-6" />
               </div>
               <h3 className="text-base font-serif uppercase tracking-widest text-[#FAF6F0]">
-                Made to Outlast
+                Versatile Layering
               </h3>
               <p className="text-xs text-[#71717A] max-w-xs leading-relaxed tracking-wider">
-                We believe in slow fashion. Our apparel is engineered to maintain its shape, texture, and elegant look for years.
+                Engineered to pair effortlessly over any Eastern kurta, dress, or formal suit for instant festive flair.
               </p>
             </div>
             <div className="space-y-4 flex flex-col items-center">
@@ -396,54 +396,61 @@ export default function HomePage() {
                 <Heart className="h-6 w-6" />
               </div>
               <h3 className="text-base font-serif uppercase tracking-widest text-[#FAF6F0]">
-                Conscious Sourcing
+                Custom Made
               </h3>
               <p className="text-xs text-[#71717A] max-w-xs leading-relaxed tracking-wider">
-                ihdat maintains transparency in materials. We manufacture ethically in certified mills committed to conservation.
+                We offer bespoke tailor-made sizing options for both Women and Children to ensure a flawless fit.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. Members Club / Newsletter Invitation */}
+      {/* 7. Pret & Suits Atelier Preview Showcase (Expansion Vision) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative bg-[#FAF6F0] border border-gray-200/50 p-12 md:p-20 text-center space-y-8 overflow-hidden shadow-2xs">
-          {/* Subtle background overlay icons */}
-          <div className="absolute -right-20 -bottom-20 opacity-5 pointer-events-none select-none">
-            <Sparkles className="h-96 w-96 text-[#C5A880]" />
-          </div>
-
-          <div className="max-w-xl mx-auto space-y-4 relative z-10">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C5A880]">
-              ihdat members club
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#FAF6F0] p-8 md:p-16 border border-gray-200/60 shadow-xs">
+          <div className="lg:col-span-6 space-y-6">
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#C5A880]">
+              future pret atelier
             </span>
-            <h2 className="font-serif text-3xl font-light tracking-widest uppercase text-black">
-              Elevate Your Wardrobe
+            <h2 className="font-serif text-3xl md:text-4xl font-light uppercase tracking-widest text-black leading-tight">
+              Pret & Suits <br /> Expansion Preview
             </h2>
-            <p className="text-xs text-gray-500 leading-relaxed tracking-wider max-w-md mx-auto">
-              Subscribe to receive private invitations to seasonal pre-sales, lookbooks, and exclusive product releases.
+            <div className="h-[1px] w-20 bg-[#C5A880]" />
+            <p className="text-xs text-[#71717A] leading-relaxed tracking-wider">
+              While specialized in Kotis & Waistcoats today, ihdat is expanding into bespoke 2-piece and 3-piece silk suit sets designed as complete festive Pret collections.
             </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link
+                href="/custom-order"
+                className="px-8 py-3.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-sm"
+              >
+                Bespoke Custom Order Request
+              </Link>
+              <Link
+                href="/products"
+                className="px-8 py-3.5 border border-black hover:bg-black hover:text-white text-black text-xs font-bold uppercase tracking-widest transition-colors"
+              >
+                Explore Current Catalog
+              </Link>
+            </div>
           </div>
 
-          <div className="max-w-md mx-auto relative z-10">
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-2 mt-4">
-              <input
-                type="email"
-                required
-                placeholder="Enter your email address"
-                className="flex-grow border border-gray-200 px-4 py-3 text-xs focus:outline-none focus:border-black bg-white text-black rounded-none shadow-3xs"
-              />
-              <button
-                type="submit"
-                className="bg-black hover:bg-[#C5A880] hover:text-black text-[#FAF6F0] px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors rounded-none shadow-sm"
-              >
-                Join Club
-              </button>
-            </form>
+          <div className="lg:col-span-6 relative aspect-4/3 bg-gray-200 overflow-hidden shadow-md border border-gray-200">
+            <Image
+              src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800"
+              alt="ihdat Pret Suit & Koti Set preview"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-xs text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 border border-white/20">
+              Pret Collection 2026
+            </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

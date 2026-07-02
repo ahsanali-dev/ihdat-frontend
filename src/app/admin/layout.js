@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "@/store/slices/authSlice";
+import { orderActions } from "@/store/slices/orderSlice";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
@@ -137,6 +138,12 @@ export default function AdminLayout({ children }) {
     dispatch(authActions.checkAdminAuth());
     setIsClient(true);
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isAdminLoggedIn) {
+      dispatch(orderActions.fetchOrders());
+    }
+  }, [isAdminLoggedIn, dispatch]);
 
   // If not mounted on client, render a simple dark background shell to match AdminLogin SSR
   if (!isClient) {

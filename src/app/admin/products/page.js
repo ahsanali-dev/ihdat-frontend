@@ -112,7 +112,7 @@ export default function AdminProductsPage() {
 
   // Categories list state populated from products + defaults
   const [categories, setCategories] = useState(() => {
-    const defaultCats = ["Shirts", "Outerwear", "Pants", "Activewear", "Accessories"];
+    const defaultCats = ["Women's Kotis", "Kids' Waistcoats", "Custom Jackets", "Velvet & Silk", "Apparel & Suits"];
     const existingCats = products.map((p) => p.category);
     return Array.from(new Set([...defaultCats, ...existingCats]));
   });
@@ -632,7 +632,7 @@ export default function AdminProductsPage() {
                initialValues={{
                   name: editingProduct ? editingProduct.name : "",
                   price: editingProduct ? editingProduct.price : "",
-                  category: editingProduct ? editingProduct.category : "Shirts",
+                  category: editingProduct ? editingProduct.category : "Women's Kotis",
                   customCategory: "",
                   description: editingProduct ? editingProduct.description : "",
                   stock: editingProduct ? editingProduct.stock : "",
@@ -741,70 +741,6 @@ export default function AdminProductsPage() {
                         <span className="text-[9px] text-[#C5A880] font-semibold uppercase tracking-wider">
                           Visual Gallery Setup
                         </span>
-                      </div>
-
-                      {/* Presets and auto-fill templates */}
-                      <div className="space-y-1.5 bg-white p-3 border border-gray-100">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400 block">
-                          Click a quick template to select multiple related images:
-                        </span>
-                        <div className="flex flex-wrap gap-2">
-                          {(() => {
-                            const templates = {
-                              Polo: [
-                                "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600",
-                                "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?q=80&w=600",
-                                "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600",
-                                "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600"
-                              ],
-                              Jacket: [
-                                "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=600",
-                                "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600",
-                                "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600",
-                                "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600"
-                              ],
-                              Linen: [
-                                "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600",
-                                "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600",
-                                "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600",
-                                "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600"
-                              ],
-                              Hoodie: [
-                                "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-                                "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600",
-                                "https://images.unsplash.com/photo-1556821840-416b0864380f?q=80&w=600",
-                                "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600"
-                              ],
-                              Pants: [
-                                "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600",
-                                "https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600",
-                                "https://images.unsplash.com/photo-1506629082925-63d6314a3389?q=80&w=600",
-                                "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=600"
-                              ],
-                              Scarf: [
-                                "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=600",
-                                "https://images.unsplash.com/photo-1584030373081-f37b7bb4fa8e?q=80&w=600",
-                                "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?q=80&w=600",
-                                "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600"
-                              ]
-                            };
-                            return Object.keys(templates).map((name) => (
-                              <button
-                                key={name}
-                                type="button"
-                                onClick={() => {
-                                  setFieldValue("imageInput1", templates[name][0] || "");
-                                  setFieldValue("imageInput2", templates[name][1] || "");
-                                  setFieldValue("imageInput3", templates[name][2] || "");
-                                  setFieldValue("imageInput4", templates[name][3] || "");
-                                }}
-                                className="px-2 py-1 text-[9px] font-semibold border border-gray-200 bg-white hover:border-black rounded-sm transition-all text-gray-600 uppercase tracking-wider"
-                              >
-                                {name} Set
-                              </button>
-                            ));
-                          })()}
-                        </div>
                       </div>
 
                       {/* 4 Image Upload Zones */}

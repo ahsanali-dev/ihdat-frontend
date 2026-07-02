@@ -88,12 +88,13 @@ export default function SlideCartDrawer() {
                     <p className="text-sm text-[#71717A] uppercase tracking-wider font-medium">
                       Your cart is empty
                     </p>
-                    <button
+                    <Link
+                      href="/products"
                       onClick={handleClose}
-                      className="px-6 py-2 border border-[#111111] text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-transparent hover:text-[#111111] transition-all"
+                      className="px-6 py-2 border border-[#111111] text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-transparent hover:text-[#111111] transition-all inline-block"
                     >
                       Start Shopping
-                    </button>
+                    </Link>
                   </div>
                 ) : (
                   cartItems.map((item) => {
@@ -195,12 +196,13 @@ export default function SlideCartDrawer() {
                     >
                       Checkout
                     </Link>
-                    <button
+                    <Link
+                      href="/products"
                       onClick={handleClose}
                       className="w-full flex items-center justify-center px-6 py-2 border border-[#E4E4E7] text-xs font-semibold uppercase tracking-widest text-[#111111] bg-white hover:bg-[#E4E4E7]/30 transition-colors"
                     >
                       Continue Shopping
-                    </button>
+                    </Link>
                   </div>
                 </div>
               )}

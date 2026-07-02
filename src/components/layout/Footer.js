@@ -13,7 +13,7 @@ export default function Footer() {
               ihdat
             </span>
             <p className="text-xs text-[#71717A] tracking-wider leading-relaxed">
-              Originated from the pursuit of visual harmony. We craft timeless garments designed to outlast trend cycles, focusing on premium materials and sustainable craftsmanship.
+              Crafting bespoke handcrafted Kotis, Waistcoats & Ethnic Overlay Jackets for Women & Children. Designed to layer gracefully over Eastern suits, with custom measurement options.
             </p>
             {/* Social Icon Links */}
             <div className="flex space-x-4 pt-2">
@@ -58,9 +58,10 @@ export default function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C5A880]">Collections</h4>
             <ul className="space-y-2 text-xs text-[#71717A] tracking-wider">
               <li><Link href="/products" className="hover:text-[#FAF6F0] transition-colors">Shop All</Link></li>
-              <li><Link href="/products?category=Shirts" className="hover:text-[#FAF6F0] transition-colors">Shirts & Knits</Link></li>
-              <li><Link href="/products?category=Outerwear" className="hover:text-[#FAF6F0] transition-colors">Outerwear</Link></li>
-              <li><Link href="/products?category=Accessories" className="hover:text-[#FAF6F0] transition-colors">Accessories</Link></li>
+              <li><Link href="/products?category=Women%27s%20Kotis" className="hover:text-[#FAF6F0] transition-colors">Women's Kotis</Link></li>
+              <li><Link href="/products?category=Kids%27%20Waistcoats" className="hover:text-[#FAF6F0] transition-colors">Kids' Waistcoats</Link></li>
+              <li><Link href="/products?category=Custom%20Jackets" className="hover:text-[#FAF6F0] transition-colors">Custom Jackets</Link></li>
+              <li><Link href="/products?category=Apparel%20%26%20Suits" className="hover:text-[#FAF6F0] transition-colors">Pret & Suits</Link></li>
             </ul>
           </div>
 
@@ -68,11 +69,10 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C5A880]">Assistance</h4>
             <ul className="space-y-2 text-xs text-[#71717A] tracking-wider">
+              <li><Link href="/custom-order" className="hover:text-[#FAF6F0] transition-colors">Bespoke Custom Studio</Link></li>
+              <li><Link href="/size-guide" className="hover:text-[#FAF6F0] transition-colors">Size Guide & Care</Link></li>
               <li><Link href="/about" className="hover:text-[#FAF6F0] transition-colors">About Us</Link></li>
               <li><Link href="/contact" className="hover:text-[#FAF6F0] transition-colors">Contact Us</Link></li>
-              <li><a href="#" className="hover:text-[#FAF6F0] transition-colors">Shipping & Returns</a></li>
-              <li><a href="#" className="hover:text-[#FAF6F0] transition-colors">Size Guide</a></li>
-              <li><a href="#" className="hover:text-[#FAF6F0] transition-colors">Care Instructions</a></li>
               <li><Link href="/admin" className="hover:text-[#FAF6F0] transition-colors">Admin Login</Link></li>
             </ul>
           </div>
@@ -104,8 +104,8 @@ export default function Footer() {
         <div className="mt-16 border-t border-[#FAF6F0]/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-[#71717A] tracking-widest uppercase">
           <p>© 2026 ihdat inc. all rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">privacy policy</a>
-            <a href="#" className="hover:text-white">terms of service</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">privacy policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">terms of service</Link>
           </div>
         </div>
       </div>
