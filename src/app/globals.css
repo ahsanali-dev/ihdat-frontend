@@ -25,3 +25,27 @@ body {
   color: var(--color-primary);
   font-family: var(--font-sans);
 }
+
+/* Swiper Pagination Theme Overrides */
+.reviews-swiper {
+  padding-bottom: 45px !important;
+}
+
+.reviews-swiper .swiper-pagination {
+  bottom: 0px !important;
+}
+
+.reviews-swiper .swiper-pagination-bullet {
+  background: #A1A1AA !important;
+  opacity: 0.4;
+  width: 6px;
+  height: 6px;
+  transition: all 0.3s ease;
+}
+
+.reviews-swiper .swiper-pagination-bullet-active {
+  background: #C5A880 !important;
+  opacity: 1;
+  width: 18px;
+  border-radius: 4px;
+}

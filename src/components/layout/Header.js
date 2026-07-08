@@ -28,9 +28,9 @@ export default function Header() {
 
   const navLinks = [
     { name: "Shop All", href: "/products" },
-    { name: "Custom Order", href: "/custom-order" },
     { name: "Women's Kotis", href: "/products?category=Women%27s%20Kotis" },
     { name: "Kids' Waistcoats", href: "/products?category=Kids%27%20Waistcoats" },
+    { name: "Custom Order", href: "/custom-order" },
     { name: "Track Order", href: "/track" },
     { name: "About Us", href: "/about" },
   ];

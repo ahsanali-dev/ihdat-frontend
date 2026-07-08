@@ -1,15 +1,24 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { ArrowRight, Sparkles, Shield, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
+import ReviewsSection from "@/components/ReviewsSection";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function HomePage() {
-  const products = useSelector((state) => state.products.products);
+  const { products, loading } = useSelector((state) => state.products);
   const featuredProducts = products.filter((p) => p.isFeatured).slice(0, 3);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Fade-in variants for Framer Motion
   const fadeInUp = {
@@ -296,7 +305,22 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {featuredProducts.length === 0 ? (
+        {mounted && loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[...Array(3)].map((_, index) => (
+              <div key={index} className="space-y-4 text-left">
+                <div className="aspect-[3/4] w-full bg-zinc-100 animate-pulse border border-zinc-200/50 rounded-xs">
+                  <Skeleton height="100%" borderRadius={0} />
+                </div>
+                <div className="space-y-2">
+                  <Skeleton width="70%" height={16} />
+                  <Skeleton width="40%" height={12} />
+                  <Skeleton width="30%" height={12} />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : featuredProducts.length === 0 ? (
           <div className="text-center py-16 bg-white border border-[#E4E4E7]/40 p-8 shadow-xs space-y-3">
             <p className="text-sm font-medium text-gray-500 tracking-wider">No featured products available at the moment.</p>
             <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed">
@@ -405,6 +429,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews & Testimonials Section */}
+      <ReviewsSection />
 
       {/* 7. Pret & Suits Atelier Preview Showcase (Expansion Vision) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

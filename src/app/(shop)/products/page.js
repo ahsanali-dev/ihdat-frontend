@@ -7,11 +7,14 @@ import { useSelector } from "react-redux";
 import { SlidersHorizontal, Search, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function ProductListingContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const allProducts = useSelector((state) => state.products.products);
+  const { products: allProducts, loading } = useSelector((state) => state.products);
+  const [mounted, setMounted] = useState(false);
 
   // States
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -19,6 +22,10 @@ function ProductListingContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
   const [visibleCount, setVisibleCount] = useState(9);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Categories list extracted from mock products
   const categories = ["All", ...Array.from(new Set(allProducts.map((p) => p.category)))];
@@ -166,7 +173,22 @@ function ProductListingContent() {
       </div>
 
       {/* Products Grid */}
-      {allProducts.length === 0 ? (
+      {mounted && loading ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {[...Array(6)].map((_, index) => (
+            <div key={index} className="space-y-4 text-left">
+              <div className="aspect-[3/4] w-full">
+                <Skeleton height="100%" className="aspect-[3/4]" borderRadius={0} />
+              </div>
+              <div className="space-y-2">
+                <Skeleton width="70%" height={16} />
+                <Skeleton width="40%" height={12} />
+                <Skeleton width="30%" height={12} />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : allProducts.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 text-center space-y-4 bg-white border border-[#E4E4E7]/40 p-8 shadow-xs">
           <p className="text-sm text-[#71717A] uppercase tracking-wider font-semibold">
             Our catalog is currently empty

@@ -5,9 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { orderActions } from "@/store/slices/orderSlice";
 import { ChevronDown, ChevronUp, Package, Clock, X, Info, HelpCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function AdminOrdersPage() {
-  const orders = useSelector((state) => state.orders.orders);
+  const { orders, loading } = useSelector((state) => state.orders);
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
@@ -79,7 +81,28 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Mobile Responsive Grid List (Hidden on Desktop) */}
-      <div className="block md:hidden space-y-4">
+      {loading ? (
+        <div className="space-y-4">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left">
+              <div className="flex justify-between items-center">
+                <div className="space-y-2 w-1/3">
+                  <Skeleton height={14} width="80%" />
+                  <Skeleton height={10} width="60%" />
+                </div>
+                <Skeleton height={14} width={50} />
+              </div>
+              <div className="h-[1px] bg-gray-100" />
+              <div className="flex justify-between items-center">
+                <Skeleton height={12} width={80} />
+                <Skeleton height={12} width={65} />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <>
+          <div className="block md:hidden space-y-4">
         {paginatedOrders.map((ord) => {
           const isExpanded = expandedOrderId === ord.id;
           const totalItemsCount = ord.items.reduce((sum, item) => sum + item.quantity, 0);
@@ -405,6 +428,8 @@ export default function AdminOrdersPage() {
             </div>
           </div>
         </div>
+      )}
+        </>
       )}
 
       {/* Product Inspection Popup Modal */}

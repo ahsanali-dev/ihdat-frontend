@@ -19,7 +19,9 @@ import {
   X,
   Sparkles,
   LogOut,
-  AlertCircle
+  AlertCircle,
+  MessageSquare,
+  Scissors
 } from "lucide-react";
 
 // Admin Login Portal Component
@@ -137,6 +139,14 @@ export default function AdminLayout({ children }) {
   useEffect(() => {
     dispatch(authActions.checkAdminAuth());
     setIsClient(true);
+
+    const handleLogout = () => {
+      dispatch(authActions.logoutAdmin());
+    };
+    window.addEventListener("admin-logout", handleLogout);
+    return () => {
+      window.removeEventListener("admin-logout", handleLogout);
+    };
   }, [dispatch]);
 
   useEffect(() => {
@@ -160,6 +170,8 @@ export default function AdminLayout({ children }) {
     { name: "Products", href: "/admin/products", icon: Shirt },
     { name: "Orders", href: "/admin/orders", icon: ShoppingBag },
     { name: "Customers", href: "/admin/users", icon: Users },
+    { name: "Reviews", href: "/admin/reviews", icon: MessageSquare },
+    { name: "Bespoke Requests", href: "/admin/custom-orders", icon: Scissors },
   ];
 
   return (

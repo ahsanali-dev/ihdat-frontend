@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { User, Shield, Calendar, Mail, Phone, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function AdminUsersPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const orders = useSelector((state) => state.orders.orders);
+  const { orders, loading } = useSelector((state) => state.orders);
 
   // Extract unique customers based on email
   const customersMap = {};
@@ -66,7 +68,33 @@ export default function AdminUsersPage() {
       </div>
 
       {/* Mobile Responsive Grid List (Hidden on Desktop) */}
-      <div className="block md:hidden space-y-4">
+      {loading ? (
+        <div className="space-y-4">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-3 w-2/3">
+                  <div className="p-2.5 bg-gray-50 border border-gray-100 rounded-full shrink-0">
+                    <Skeleton circle width={20} height={20} />
+                  </div>
+                  <div className="space-y-2 w-2/3">
+                    <Skeleton height={14} width="80%" />
+                    <Skeleton height={10} width="50%" />
+                  </div>
+                </div>
+                <Skeleton height={14} width={50} />
+              </div>
+              <div className="h-[1px] bg-gray-100" />
+              <div className="flex justify-between items-center">
+                <Skeleton height={12} width={80} />
+                <Skeleton height={12} width={65} />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <>
+          <div className="block md:hidden space-y-4">
         {paginatedUsers.map((user) => (
           <div key={user.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4">
             <div className="flex justify-between items-start">
@@ -260,6 +288,8 @@ export default function AdminUsersPage() {
             </div>
           </div>
         </div>
+      )}
+        </>
       )}
     </div>
   );

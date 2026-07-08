@@ -5,4 +5,6 @@ export const API_ENDPOINTS = {
   UPLOAD: "/upload",
   CONTACT: "/contact",
   TRACK_ORDER: "/orders/track",
+  REVIEWS: "/reviews",
+  CUSTOM_ORDERS: "/custom-orders",
 };

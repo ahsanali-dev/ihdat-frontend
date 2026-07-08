@@ -4,6 +4,8 @@ import productReducer from "./slices/productSlice";
 import orderReducer from "./slices/orderSlice";
 import authReducer from "./slices/authSlice";
 import quickViewReducer from "./slices/quickViewSlice";
+import reviewReducer from "./slices/reviewSlice";
+import customOrderReducer from "./slices/customOrderSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +14,8 @@ const store = configureStore({
     orders: orderReducer,
     auth: authReducer,
     quickView: quickViewReducer,
+    reviews: reviewReducer,
+    customOrders: customOrderReducer,
   },
 });
 

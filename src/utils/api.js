@@ -25,4 +25,18 @@ api.interceptors.request.use(
   }
 );
 
+// Interceptor to handle JWT token expiration (401 Unauthorized status)
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("adminToken");
+        window.dispatchEvent(new Event("admin-logout"));
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default api;

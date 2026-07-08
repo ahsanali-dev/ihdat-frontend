@@ -81,10 +81,19 @@ export default function CustomOrderPage() {
       const payload = {
         name: values.customerName,
         email: values.email,
-        message: `[BESPOKE CUSTOM KOTI ORDER]\nTarget: ${values.targetAudience}\nPhone: ${values.phone}\nFabric: ${values.fabric}\nEmbroidery: ${values.embroidery}\nMeasurements (inches) -> Chest/Bust: ${values.chest}, Shoulder: ${values.shoulder}, Length: ${values.length}, Waist: ${values.waist || "N/A"}\nReference Photo: ${values.referencePhoto || "None"}\nNotes: ${values.specialInstructions || "None"}`
+        phone: values.phone,
+        targetAudience: values.targetAudience,
+        fabric: values.fabric,
+        embroidery: values.embroidery,
+        chest: values.chest,
+        shoulder: values.shoulder,
+        length: values.length,
+        waist: values.waist || null,
+        referencePhoto: values.referencePhoto || null,
+        specialInstructions: values.specialInstructions || null,
       };
 
-      await api.post(API_ENDPOINTS.CONTACT, payload);
+      await api.post(API_ENDPOINTS.CUSTOM_ORDERS, payload);
       setSubmitted(true);
     } catch (err) {
       console.error("Custom order submission error:", err);
@@ -299,10 +308,20 @@ export default function CustomOrderPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting || uploading}
-                      className="w-full py-4 bg-[#1E1E24] hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-md flex items-center justify-center space-x-2"
+                      className="w-full py-4 bg-[#1E1E24] hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-md flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Sparkles className="h-4 w-4" />
-                      <span>{isSubmitting ? "Submitting Request..." : "Submit Bespoke Custom Order"}</span>
+                      {isSubmitting || uploading ? (
+                        <span className="inline-block animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full mr-2" />
+                      ) : (
+                        <Sparkles className="h-4 w-4" />
+                      )}
+                      <span>
+                        {isSubmitting
+                          ? "Submitting Request..."
+                          : uploading
+                          ? "Uploading Photo..."
+                          : "Submit Bespoke Custom Order"}
+                      </span>
                     </button>
                   </Form>
                 )}

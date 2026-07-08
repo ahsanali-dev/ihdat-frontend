@@ -15,6 +15,9 @@ import { FreeMode } from "swiper/modules";
 // Swiper CSS
 import "swiper/css";
 import "swiper/css/free-mode";
+import ReviewsSection from "@/components/ReviewsSection";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function ProductDetailPage({ params }) {
   const resolvedParams = use(params);
@@ -22,7 +25,7 @@ export default function ProductDetailPage({ params }) {
   const dispatch = useDispatch();
 
   // Find the active product from Redux
-  const products = useSelector((state) => state.products.products);
+  const { products, loading } = useSelector((state) => state.products);
   const product = products.find((p) => p.id === productId);
 
   // States
@@ -68,18 +71,74 @@ export default function ProductDetailPage({ params }) {
     setZoomPos({ x, y });
   };
 
-  if (!product) {
+  if (!isMounted || loading || !product) {
+    if (isMounted && !loading && !product) {
+      return (
+        <div className="max-w-7xl mx-auto px-4 py-20 text-center space-y-4">
+          <AlertTriangle className="h-12 w-12 text-[#7D1D2B] mx-auto" />
+          <h2 className="text-xl font-semibold uppercase tracking-wider">Product Not Found</h2>
+          <p className="text-xs text-[#71717A]">The garment you are looking for does not exist or has been removed.</p>
+          <Link
+            href="/products"
+            className="inline-block px-6 py-2 border border-[#111111] text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-transparent hover:text-[#111111] transition-all"
+          >
+            Return to Catalog
+          </Link>
+        </div>
+      );
+    }
+
     return (
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center space-y-4">
-        <AlertTriangle className="h-12 w-12 text-[#7D1D2B] mx-auto" />
-        <h2 className="text-xl font-semibold uppercase tracking-wider">Product Not Found</h2>
-        <p className="text-xs text-[#71717A]">The garment you are looking for does not exist or has been removed.</p>
-        <Link
-          href="/products"
-          className="inline-block px-6 py-2 border border-[#111111] text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-transparent hover:text-[#111111] transition-all"
-        >
-          Return to Catalog
-        </Link>
+      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 space-y-12 text-left">
+        <div>
+          <div className="w-32"><Skeleton height={14} /></div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Left Side: Images Skeleton */}
+          <div className="space-y-4">
+            <div className="aspect-[3/4] w-full bg-zinc-100 animate-pulse border border-zinc-200/50 rounded-xs">
+              <Skeleton height="100%" borderRadius={0} />
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="aspect-[3/4] bg-zinc-100 animate-pulse border border-zinc-200/50 rounded-xs">
+                  <Skeleton height="100%" borderRadius={0} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Details Skeleton */}
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <div className="w-1/4"><Skeleton height={12} /></div>
+              <div className="w-3/4"><Skeleton height={24} /></div>
+              <div className="w-1/3"><Skeleton height={18} /></div>
+            </div>
+            <div className="h-[1px] bg-gray-200" />
+            <div className="space-y-3">
+              <Skeleton count={4} height={12} />
+            </div>
+            <div className="space-y-2 pt-4">
+              <div className="w-1/4"><Skeleton height={10} /></div>
+              <div className="flex space-x-2">
+                <Skeleton circle width={32} height={32} />
+                <Skeleton circle width={32} height={32} />
+              </div>
+            </div>
+            <div className="space-y-2 pt-4">
+              <div className="w-1/4"><Skeleton height={10} /></div>
+              <div className="flex space-x-3">
+                {[...Array(4)].map((_, i) => (
+                  <Skeleton key={i} width={40} height={32} />
+                ))}
+              </div>
+            </div>
+            <div className="pt-6">
+              <Skeleton width="50%" height={40} borderRadius={0} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -389,6 +448,9 @@ export default function ProductDetailPage({ params }) {
           </div>
         </div>
       </div>
+
+      {/* Reviews Section */}
+      <ReviewsSection productId={product.id} productName={product.name} />
 
       {/* Sticky Mobile Add to Cart Drawer */}
       <AnimatePresence>

@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { DollarSign, ShoppingBag, Shirt, Users, ArrowUpRight, TrendingUp, AlertTriangle } from "lucide-react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function AdminDashboardOverview() {
-  const orders = useSelector((state) => state.orders.orders);
-  const products = useSelector((state) => state.products.products);
+  const { orders, loading: ordersLoading } = useSelector((state) => state.orders);
+  const { products, loading: productsLoading } = useSelector((state) => state.products);
+  const loading = ordersLoading || productsLoading;
 
   // 1. Calculate metrics
   const totalRevenue = orders
@@ -47,6 +50,84 @@ export default function AdminDashboardOverview() {
       color: "bg-purple-500",
     },
   ];
+
+  if (loading) {
+    return (
+      <div className="space-y-10 text-left">
+        {/* Title */}
+        <div className="flex justify-between items-center">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-serif font-light uppercase tracking-wider text-black">
+              Dashboard Overview
+            </h1>
+            <div className="w-48"><Skeleton height={12} /></div>
+          </div>
+        </div>
+
+        {/* Grid Stats Skeleton */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="bg-white p-6 border border-gray-200 shadow-xs space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="space-y-2 w-2/3">
+                  <div className="w-1/2"><Skeleton height={10} /></div>
+                  <div className="w-3/4"><Skeleton height={24} /></div>
+                </div>
+                <Skeleton circle width={40} height={40} />
+              </div>
+              <div className="h-[1px] bg-gray-100" />
+              <div className="w-1/2"><Skeleton height={10} /></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Dashboard Sub-grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Recent Orders Skeleton - 8 cols */}
+          <div className="lg:col-span-8 bg-white border border-gray-200 p-6 space-y-6">
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-800">
+                Recent Orders
+              </h3>
+              <div className="w-20"><Skeleton height={12} /></div>
+            </div>
+            <div className="space-y-4">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="flex justify-between items-center py-2.5 border-b border-gray-100 last:border-0">
+                  <div className="w-1/6"><Skeleton height={12} /></div>
+                  <div className="space-y-1 w-1/4">
+                    <Skeleton height={12} width="80%" />
+                    <Skeleton height={9} width="60%" />
+                  </div>
+                  <div className="w-1/6"><Skeleton height={10} /></div>
+                  <div className="w-1/6"><Skeleton height={12} /></div>
+                  <div className="w-16"><Skeleton height={20} borderRadius={10} /></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Low Stock Alerts Skeleton - 4 cols */}
+          <div className="lg:col-span-4 bg-white border border-gray-200 p-6 space-y-6">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-800 flex items-center">
+              <AlertTriangle className="h-4 w-4 text-amber-500 mr-2" /> Stock Warnings
+            </h3>
+            <div className="space-y-4">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
+                  <div className="space-y-1 w-2/3">
+                    <Skeleton height={12} width="70%" />
+                    <Skeleton height={10} width="40%" />
+                  </div>
+                  <div className="w-12"><Skeleton height={20} /></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-10">

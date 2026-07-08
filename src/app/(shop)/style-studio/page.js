@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/slices/cartSlice";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ShoppingBag, Check, Scissors, Eye, RefreshCw } from "lucide-react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const BASE_SUIT_COLORS = [
   { name: "Midnight Black", hex: "#1E1E24", border: "border-gray-700", text: "text-white" },
@@ -19,15 +21,26 @@ const BASE_SUIT_COLORS = [
 
 export default function StyleStudioPage() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.products);
+  const { products, loading } = useSelector((state) => state.products);
   const kotiProducts = products.filter((p) => p.category === "Women's Kotis" || p.category === "Custom Jackets");
 
   const [selectedSuit, setSelectedSuit] = useState(BASE_SUIT_COLORS[0]);
-  const [selectedKoti, setSelectedKoti] = useState(kotiProducts[0] || products[0]);
+  const [selectedKoti, setSelectedKoti] = useState(null);
   const [addedNotice, setAddedNotice] = useState(false);
   const [activeTab, setActiveTab] = useState("layered"); // 'layered' or 'kotiOnly'
+  const [mounted, setMounted] = useState(false);
 
-  const activeKoti = selectedKoti || products[0];
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (kotiProducts.length > 0 && !selectedKoti) {
+      setSelectedKoti(kotiProducts[0]);
+    }
+  }, [kotiProducts, selectedKoti]);
+
+  const activeKoti = selectedKoti || kotiProducts[0] || products[0];
 
   const handleAddComboToCart = () => {
     if (!activeKoti) return;
@@ -50,6 +63,56 @@ export default function StyleStudioPage() {
       dispatch(cartActions.openCart());
     }, 800);
   };
+
+  if (!mounted || loading) {
+    return (
+      <div className="min-h-screen bg-[#FAF6F0] py-12 px-4 sm:px-6 lg:px-8 text-left">
+        <div className="max-w-7xl mx-auto space-y-12">
+          {/* Header Skeleton */}
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <div className="w-40 mx-auto"><Skeleton height={12} /></div>
+            <div className="w-80 mx-auto"><Skeleton height={28} /></div>
+            <div className="w-96 mx-auto"><Skeleton height={14} /></div>
+          </div>
+          {/* Main Visualizer split grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+            {/* Visual Preview pane */}
+            <div className="lg:col-span-7 bg-white border border-gray-200 p-4 aspect-[4/5] flex items-center justify-center">
+              <div className="w-full h-full relative bg-zinc-50">
+                <Skeleton height="100%" borderRadius={0} />
+              </div>
+            </div>
+            {/* Options selection panel */}
+            <div className="lg:col-span-5 bg-white border border-gray-200 p-8 space-y-8 flex flex-col justify-between">
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <div className="w-1/3"><Skeleton height={14} /></div>
+                  <div className="w-1/2"><Skeleton height={10} /></div>
+                </div>
+                <div className="flex gap-3">
+                  {[...Array(6)].map((_, i) => (
+                    <Skeleton key={i} circle width={32} height={32} />
+                  ))}
+                </div>
+                <div className="space-y-2 pt-4">
+                  <div className="w-1/3"><Skeleton height={14} /></div>
+                  <div className="w-1/2"><Skeleton height={10} /></div>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  {[...Array(3)].map((_, i) => (
+                    <div key={i} className="aspect-[3/4]"><Skeleton height="100%" borderRadius={0} /></div>
+                  ))}
+                </div>
+              </div>
+              <div className="pt-6">
+                <Skeleton height={44} borderRadius={0} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#FAF6F0] py-12 px-4 sm:px-6 lg:px-8">

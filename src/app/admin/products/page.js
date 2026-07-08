@@ -9,6 +9,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Plus, Trash2, Edit, X, AlertCircle, ChevronRight, ChevronLeft, Upload } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // Product validation schema
 const ProductSchema = Yup.object().shape({
@@ -39,7 +41,7 @@ const ProductSchema = Yup.object().shape({
 });
 
 export default function AdminProductsPage() {
-  const products = useSelector((state) => state.products.products);
+  const { products, loading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   const [uploadingField, setUploadingField] = useState(null);
@@ -340,7 +342,31 @@ export default function AdminProductsPage() {
       </div>
 
       {/* Mobile Responsive Grid List (Hidden on Desktop) */}
-      <div className="block md:hidden space-y-4">
+      {loading ? (
+        <div className="space-y-4">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-3 w-2/3">
+                  <Skeleton width={45} height={60} borderRadius={0} />
+                  <div className="space-y-2 w-2/3">
+                    <Skeleton height={14} width="80%" />
+                    <Skeleton height={10} width="50%" />
+                  </div>
+                </div>
+                <Skeleton height={14} width={60} />
+              </div>
+              <div className="h-[1px] bg-gray-100" />
+              <div className="flex justify-between items-center">
+                <Skeleton height={12} width={80} />
+                <Skeleton height={12} width={65} />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <>
+          <div className="block md:hidden space-y-4">
         {paginatedProducts.map((prod) => (
           <div key={prod.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4">
             <div className="flex justify-between items-start">
@@ -591,6 +617,8 @@ export default function AdminProductsPage() {
             </div>
           </div>
         </div>
+      )}
+        </>
       )}
 
       {/* Add/Edit Product Modal Overlay Animated with Framer Motion */}

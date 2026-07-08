@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import api from "@/utils/api";
 import { API_ENDPOINTS } from "@/utils/apiEndpoints";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function OrderTrackingPage() {
   const [orderId, setOrderId] = useState("");
@@ -94,9 +96,42 @@ export default function OrderTrackingPage() {
             className="max-w-2xl mx-auto"
           >
             {loading ? (
-              <div className="bg-white border border-[#E4E4E7]/60 p-12 text-center text-xs text-gray-500 tracking-wider flex items-center justify-center gap-2">
-                <span className="inline-block animate-spin h-4 w-4 border-2 border-[#C5A880] border-t-transparent rounded-full"></span>
-                Searching for order logs...
+              <div className="bg-white border border-[#E4E4E7]/60 p-8 shadow-md space-y-10 text-left">
+                {/* Header Skeleton */}
+                <div className="flex justify-between items-center border-b border-gray-100 pb-4">
+                  <div className="space-y-2 w-1/3">
+                    <Skeleton height={10} width="60%" />
+                    <Skeleton height={18} width="80%" />
+                  </div>
+                  <div className="space-y-1 w-1/4">
+                    <Skeleton height={10} />
+                    <Skeleton height={10} />
+                  </div>
+                </div>
+
+                {/* Pipeline Steps Skeletons */}
+                <div className="space-y-4 pt-4">
+                  <div className="w-1/4"><Skeleton height={12} /></div>
+                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 pt-2">
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} className="flex sm:flex-col items-center sm:text-center space-y-2">
+                        <Skeleton circle width={36} height={36} />
+                        <div className="space-y-1 w-2/3 sm:mx-auto">
+                          <Skeleton height={10} />
+                          <Skeleton height={8} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Items & Shipping skeleton */}
+                <div className="border-t border-gray-100 pt-6 space-y-4">
+                  <Skeleton height={12} width="20%" />
+                  <div className="space-y-2">
+                    <Skeleton height={35} count={2} />
+                  </div>
+                </div>
               </div>
             ) : error || !foundOrder ? (
               <div className="bg-rose-50 border border-rose-200 text-rose-800 p-6 flex items-start space-x-3 text-xs leading-relaxed">
