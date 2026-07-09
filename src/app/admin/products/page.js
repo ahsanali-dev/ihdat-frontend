@@ -275,14 +275,14 @@ export default function AdminProductsPage() {
             setEditingProduct(null);
             setModalOpen(true);
           }}
-          className="inline-flex items-center px-4 py-2 border border-transparent text-xs font-semibold uppercase tracking-widest text-black bg-[#C5A880] hover:bg-[#111111] hover:text-white transition-colors"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-xs font-semibold uppercase tracking-widest text-black bg-[#C5A880] hover:bg-[#111111] hover:text-white transition-colors rounded-lg"
         >
           <Plus className="h-4 w-4 mr-1.5" /> Add Product
         </button>
       </div>
 
       {/* Search and Filters Controls */}
-      <div className="flex flex-col md:flex-row gap-4 bg-white p-4 border border-gray-200 shadow-xs justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-4 bg-white p-4 border border-gray-200 shadow-xs justify-between items-center rounded-2xl">
         {/* Search */}
         <div className="relative w-full md:w-72">
           <input
@@ -290,7 +290,7 @@ export default function AdminProductsPage() {
             value={searchTerm}
             onChange={handleSearchChange}
             placeholder="Search by name, desc, or ID..."
-            className="w-full pl-9 pr-3 py-2 border border-gray-250 text-xs focus:outline-none focus:border-black rounded-none bg-white"
+            className="w-full pl-9 pr-3 py-2 border border-gray-250 text-xs focus:outline-none focus:border-black rounded-lg bg-white"
           />
           <span className="absolute left-3 top-2.5 text-gray-400">
             <svg
@@ -315,7 +315,7 @@ export default function AdminProductsPage() {
           <select
             value={selectedCategoryFilter}
             onChange={handleCategoryFilterChange}
-            className="border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-none w-full sm:w-40"
+            className="border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg w-full sm:w-40"
           >
             <option value="All">All Categories</option>
             {categories.map((cat) => (
@@ -329,7 +329,7 @@ export default function AdminProductsPage() {
           <select
             value={sortBy}
             onChange={handleSortChange}
-            className="border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-none w-full sm:w-40"
+            className="border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg w-full sm:w-40"
           >
             <option value="default">Default Sort</option>
             <option value="name-asc">Name (A-Z)</option>
@@ -368,10 +368,10 @@ export default function AdminProductsPage() {
         <>
           <div className="block md:hidden space-y-4">
         {paginatedProducts.map((prod) => (
-          <div key={prod.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4">
+          <div key={prod.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 rounded-2xl">
             <div className="flex justify-between items-start">
               <div className="flex items-center space-x-3">
-                <div className="h-14 w-11 border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0 relative shadow-2xs">
+                <div className="h-14 w-11 border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0 relative shadow-2xs rounded-lg">
                   {prod.images && prod.images[0] ? (
                     <img
                       src={prod.images[0]}
@@ -390,7 +390,7 @@ export default function AdminProductsPage() {
               <span className="font-bold text-black text-xs">Rs. {prod.price.toLocaleString()}</span>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 text-[10px] tracking-wide text-gray-600 pt-3 border-t border-gray-100 bg-gray-50/50 p-2.5">
+            <div className="grid grid-cols-2 gap-4 text-[10px] tracking-wide text-gray-600 pt-3 border-t border-gray-100 bg-gray-50/50 p-2.5 rounded-lg">
               <div>
                 <span className="font-bold uppercase text-[8px] block tracking-widest text-gray-400">Category</span>
                 <span className="font-semibold text-gray-700">{prod.category}</span>
@@ -400,15 +400,15 @@ export default function AdminProductsPage() {
                 <span className="flex items-center gap-1.5 mt-0.5">
                   <span className="font-bold text-gray-800">{prod.stock}</span>
                   {prod.stock === 0 ? (
-                    <span className="px-1.5 py-0.5 text-[7px] font-extrabold bg-rose-50 text-rose-700 border border-rose-200 uppercase tracking-wider">
+                    <span className="px-1.5 py-0.5 text-[7px] font-extrabold bg-rose-50 text-rose-700 border border-rose-200 uppercase tracking-wider rounded-lg">
                       Out Of Stock
                     </span>
                   ) : prod.stock <= 15 ? (
-                    <span className="px-1.5 py-0.5 text-[7px] font-extrabold bg-amber-50 text-amber-700 border border-amber-200 uppercase tracking-wider">
+                    <span className="px-1.5 py-0.5 text-[7px] font-extrabold bg-amber-50 text-amber-700 border border-amber-200 uppercase tracking-wider rounded-lg">
                       Low Stock
                     </span>
                   ) : (
-                    <span className="px-1.5 py-0.5 text-[7px] font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wider">
+                    <span className="px-1.5 py-0.5 text-[7px] font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wider rounded-lg">
                       In Stock
                     </span>
                   )}
@@ -433,14 +433,14 @@ export default function AdminProductsPage() {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => handleEditClick(prod)}
-                  className="text-gray-500 hover:text-black border border-gray-200 bg-white p-2 hover:bg-gray-50 transition-colors"
+                  className="text-gray-500 hover:text-black border border-gray-200 bg-white p-2 hover:bg-gray-50 transition-colors rounded-lg"
                   title="Edit garment"
                 >
                   <Edit className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => handleDelete(prod.id)}
-                  className="text-gray-500 hover:text-rose-600 border border-gray-200 bg-white p-2 hover:bg-gray-50 transition-colors"
+                  className="text-gray-500 hover:text-rose-600 border border-gray-200 bg-white p-2 hover:bg-gray-50 transition-colors rounded-lg"
                   title="Delete garment"
                 >
                   <Trash2 className="h-4 w-4" />
@@ -452,122 +452,124 @@ export default function AdminProductsPage() {
       </div>
 
       {/* Desktop Catalog Table (Hidden on Mobile) */}
-      <div className="hidden md:block bg-white border border-gray-200 shadow-xs overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200 text-left text-xs">
-          <thead className="bg-gray-50">
-            <tr className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">
-              <th className="px-6 py-4">Apparel Name</th>
-              <th className="px-6 py-4">Category</th>
-              <th className="px-6 py-4 text-right">Price</th>
-              <th className="px-6 py-4 text-center">Sizes</th>
-              <th className="px-6 py-4 text-center">Colors</th>
-              <th className="px-6 py-4 text-center">Stock</th>
-              <th className="px-6 py-4 text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 text-gray-700 bg-white">
-            {paginatedProducts.map((prod) => (
-              <tr key={prod.id} className="hover:bg-gray-50/50 transition-colors">
-                <td className="px-6 py-4">
-                  <div className="flex items-center space-x-3">
-                    {/* Render standard image thumbnail preview */}
-                    <div className="h-10 w-8 border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0 relative shadow-2xs">
-                      {prod.images && prod.images[0] ? (
-                        <img
-                          src={prod.images[0]}
-                          alt={prod.name}
-                          className="absolute inset-0 h-full w-full object-cover object-center"
+      <div className="hidden md:block bg-white border border-gray-200 shadow-xs rounded-2xl overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200 text-left text-xs">
+            <thead className="bg-gray-50">
+              <tr className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">
+                <th className="px-6 py-4">Apparel Name</th>
+                <th className="px-6 py-4">Category</th>
+                <th className="px-6 py-4 text-right">Price</th>
+                <th className="px-6 py-4 text-center">Sizes</th>
+                <th className="px-6 py-4 text-center">Colors</th>
+                <th className="px-6 py-4 text-center">Stock</th>
+                <th className="px-6 py-4 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 text-gray-700 bg-white">
+              {paginatedProducts.map((prod) => (
+                <tr key={prod.id} className="hover:bg-gray-50/50 transition-colors">
+                  <td className="px-6 py-4">
+                    <div className="flex items-center space-x-3">
+                      {/* Render standard image thumbnail preview */}
+                      <div className="h-10 w-8 border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0 relative shadow-2xs rounded-lg">
+                        {prod.images && prod.images[0] ? (
+                          <img
+                            src={prod.images[0]}
+                            alt={prod.name}
+                            className="absolute inset-0 h-full w-full object-cover object-center"
+                          />
+                        ) : (
+                          <span className="h-full w-full block animate-pulse" style={{ backgroundColor: prod.colors[0] }} />
+                        )}
+                      </div>
+                      <div>
+                        <p className="font-serif font-medium text-black text-sm">{prod.name}</p>
+                        <p className="text-[10px] text-gray-400 uppercase tracking-wider">{prod.id}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 font-semibold">{prod.category}</td>
+                  <td className="px-6 py-4 text-right font-bold text-black">Rs. {prod.price.toLocaleString()}</td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex flex-wrap gap-1 justify-center max-w-[120px] mx-auto">
+                      {prod.sizes.map((sz) => (
+                        <span key={sz} className="bg-gray-100 px-1.5 py-0.5 rounded-lg text-[8px] font-bold text-gray-600">
+                          {sz}
+                        </span>
+                      ))}
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex gap-1 justify-center">
+                      {prod.colors.map((col, idx) => (
+                        <span
+                          key={col}
+                          className="h-4.5 w-4.5 rounded-full border border-gray-200 shadow-2xs"
+                          style={{ backgroundColor: col }}
+                          title={prod.colorNames[idx]}
                         />
+                      ))}
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="inline-flex flex-col items-center gap-1">
+                      <span className="font-bold text-gray-800 text-xs">{prod.stock}</span>
+                      {prod.stock === 0 ? (
+                        <span className="px-2 py-0.5 text-[8px] uppercase tracking-wider font-extrabold bg-rose-50 text-rose-700 border border-rose-200 rounded-lg">
+                          Out Of Stock
+                        </span>
+                      ) : prod.stock <= 15 ? (
+                        <span className="px-2 py-0.5 text-[8px] uppercase tracking-wider font-extrabold bg-amber-50 text-amber-700 border border-amber-200 rounded-lg">
+                          Low Stock
+                        </span>
                       ) : (
-                        <span className="h-full w-full block animate-pulse" style={{ backgroundColor: prod.colors[0] }} />
+                        <span className="px-2 py-0.5 text-[8px] uppercase tracking-wider font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg">
+                          In Stock
+                        </span>
                       )}
                     </div>
-                    <div>
-                      <p className="font-serif font-medium text-black text-sm">{prod.name}</p>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-wider">{prod.id}</p>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex justify-center items-center">
+                      <button
+                        onClick={() => handleEditClick(prod)}
+                        className="text-gray-400 hover:text-black p-1.5 transition-colors mr-2"
+                        title="Edit product"
+                      >
+                        <Edit className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(prod.id)}
+                        className="text-gray-400 hover:text-rose-600 p-1.5 transition-colors"
+                        title="Delete product"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
                     </div>
-                  </div>
-                </td>
-                <td className="px-6 py-4 font-semibold">{prod.category}</td>
-                <td className="px-6 py-4 text-right font-bold text-black">Rs. {prod.price.toLocaleString()}</td>
-                <td className="px-6 py-4 text-center">
-                  <div className="flex flex-wrap gap-1 justify-center max-w-[120px] mx-auto">
-                    {prod.sizes.map((sz) => (
-                      <span key={sz} className="bg-gray-100 px-1.5 py-0.5 rounded text-[8px] font-bold text-gray-600">
-                        {sz}
-                      </span>
-                    ))}
-                  </div>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <div className="flex gap-1 justify-center">
-                    {prod.colors.map((col, idx) => (
-                      <span
-                        key={col}
-                        className="h-4.5 w-4.5 rounded-full border border-gray-200 shadow-2xs"
-                        style={{ backgroundColor: col }}
-                        title={prod.colorNames[idx]}
-                      />
-                    ))}
-                  </div>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <div className="inline-flex flex-col items-center gap-1">
-                    <span className="font-bold text-gray-800 text-xs">{prod.stock}</span>
-                    {prod.stock === 0 ? (
-                      <span className="px-2 py-0.5 text-[8px] uppercase tracking-wider font-extrabold bg-rose-50 text-rose-700 border border-rose-200">
-                        Out Of Stock
-                      </span>
-                    ) : prod.stock <= 15 ? (
-                      <span className="px-2 py-0.5 text-[8px] uppercase tracking-wider font-extrabold bg-amber-50 text-amber-700 border border-amber-200">
-                        Low Stock
-                      </span>
-                    ) : (
-                      <span className="px-2 py-0.5 text-[8px] uppercase tracking-wider font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        In Stock
-                      </span>
-                    )}
-                  </div>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <div className="flex justify-center items-center">
-                    <button
-                      onClick={() => handleEditClick(prod)}
-                      className="text-gray-400 hover:text-black p-1.5 transition-colors mr-2"
-                      title="Edit product"
-                    >
-                      <Edit className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(prod.id)}
-                      className="text-gray-400 hover:text-rose-600 p-1.5 transition-colors"
-                      title="Delete product"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-3 sm:px-6 rounded-lg mt-4">
           <div className="flex flex-1 justify-between sm:hidden">
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               Previous
             </button>
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              className="relative ml-3 inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative ml-3 inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               Next
             </button>
@@ -581,7 +583,7 @@ export default function AdminProductsPage() {
               </p>
             </div>
             <div>
-              <nav className="isolate inline-flex -space-x-px bg-white" aria-label="Pagination">
+              <nav className="isolate inline-flex -space-x-px bg-white rounded-lg overflow-hidden" aria-label="Pagination">
                 <button
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -640,7 +642,7 @@ export default function AdminProductsPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -25 }}
               transition={{ type: "spring", duration: 0.35 }}
-              className="relative bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 flex flex-col border border-gray-200 z-10"
+              className="relative bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 flex flex-col border border-gray-200 z-10 rounded-2xl"
             >
               {/* Header */}
               <div className="flex justify-between items-center pb-4 border-b border-gray-100">
@@ -694,7 +696,7 @@ export default function AdminProductsPage() {
                           type="text"
                           name="name"
                           placeholder="e.g. Zaman Knit Polo"
-                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black"
+                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black rounded-lg"
                         />
                         <div className="text-[10px] font-bold text-[#7D1D2B]"><ErrorMessage name="name" /></div>
                       </div>
@@ -707,7 +709,7 @@ export default function AdminProductsPage() {
                           type="number"
                           name="price"
                           placeholder="e.g. 4990"
-                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black"
+                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black rounded-lg"
                         />
                         <div className="text-[10px] font-bold text-[#7D1D2B]"><ErrorMessage name="price" /></div>
                       </div>
@@ -722,7 +724,7 @@ export default function AdminProductsPage() {
                         <Field
                           as="select"
                           name="category"
-                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white"
+                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                         >
                           {categories.map((cat) => (
                             <option key={cat} value={cat}>
@@ -737,7 +739,7 @@ export default function AdminProductsPage() {
                               type="text"
                               name="customCategory"
                               placeholder="Enter custom category name"
-                              className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black"
+                              className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black rounded-lg"
                             />
                             <div className="text-[10px] font-bold text-[#7D1D2B]">
                               <ErrorMessage name="customCategory" />
@@ -754,14 +756,14 @@ export default function AdminProductsPage() {
                           type="number"
                           name="stock"
                           placeholder="e.g. 20"
-                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black"
+                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black rounded-lg"
                         />
                         <div className="text-[10px] font-bold text-[#7D1D2B]"><ErrorMessage name="stock" /></div>
                       </div>
                     </div>
 
                     {/* Multiple Image Upload Zones */}
-                    <div className="space-y-4 border border-gray-100 p-4 bg-gray-50/40">
+                    <div className="space-y-4 border border-gray-100 p-4 bg-gray-50/40 rounded-2xl">
                       <div className="flex justify-between items-center">
                         <label className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
                           Product Images (Upload up to 4 files)
@@ -796,7 +798,7 @@ export default function AdminProductsPage() {
                                     document.getElementById(inputId)?.click();
                                   }
                                 }}
-                                className={`relative h-32 border-2 border-dashed rounded-xs flex flex-col items-center justify-center overflow-hidden transition-all duration-250 bg-white ${
+                                className={`relative h-32 border-2 border-dashed rounded-lg flex flex-col items-center justify-center overflow-hidden transition-all duration-250 bg-white ${
                                   val
                                     ? "border-gray-200"
                                     : "border-gray-200 hover:border-black hover:bg-gray-50/50 cursor-pointer"
@@ -891,7 +893,7 @@ export default function AdminProductsPage() {
                     </div>
 
                     {/* Colors Selector */}
-                    <div className="space-y-3 border border-gray-100 p-4 bg-gray-50/40">
+                    <div className="space-y-3 border border-gray-100 p-4 bg-gray-50/40 rounded-2xl">
                       <div className="flex justify-between items-center">
                         <label className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
                           Product Colors
@@ -902,7 +904,7 @@ export default function AdminProductsPage() {
                       </div>
 
                       {/* Presets */}
-                      <div className="bg-white p-3 border border-gray-100 space-y-1.5">
+                      <div className="bg-white p-3 border border-gray-100 space-y-1.5 rounded-lg">
                         <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400 block">
                           Click a preset color to add instantly:
                         </span>
@@ -926,7 +928,7 @@ export default function AdminProductsPage() {
                                   setFieldValue("colors", [...values.colors, preset]);
                                 }
                               }}
-                              className="inline-flex items-center gap-1.5 px-2 py-1 text-[9px] border border-gray-200 hover:border-black rounded-sm bg-white transition-all text-gray-600 font-medium"
+                              className="inline-flex items-center gap-1.5 px-2 py-1 text-[9px] border border-gray-200 hover:border-black rounded-lg bg-white transition-all text-gray-600 font-medium"
                             >
                               <span
                                 className="w-3.5 h-3.5 rounded-full border border-gray-300 block shadow-3xs"
@@ -941,7 +943,7 @@ export default function AdminProductsPage() {
                       {/* Color List */}
                       <div className="space-y-2">
                         {values.colors && values.colors.map((colorItem, index) => (
-                          <div key={index} className="flex items-center gap-3 bg-white p-2.5 border border-gray-100 shadow-3xs">
+                          <div key={index} className="flex items-center gap-3 bg-white p-2.5 border border-gray-100 shadow-3xs rounded-lg">
                             {/* Color Picker Circle wrapper */}
                             <div className="relative w-8 h-8 rounded-full border border-gray-200 shadow-2xs flex-shrink-0 animate-fade-in" style={{ backgroundColor: colorItem.hex }}>
                               <input
@@ -968,7 +970,7 @@ export default function AdminProductsPage() {
                                   newColors[index] = { ...newColors[index], hex: e.target.value };
                                   setFieldValue("colors", newColors);
                                 }}
-                                className="w-full border border-gray-200 px-2 py-1 text-[11px] focus:outline-none focus:border-black uppercase font-mono"
+                                className="w-full border border-gray-200 px-2 py-1 text-[11px] focus:outline-none focus:border-black uppercase font-mono rounded-lg"
                               />
                             </div>
 
@@ -983,7 +985,7 @@ export default function AdminProductsPage() {
                                   newColors[index] = { ...newColors[index], name: e.target.value };
                                   setFieldValue("colors", newColors);
                                 }}
-                                className="w-full border border-gray-200 px-2 py-1 text-[11px] focus:outline-none focus:border-black"
+                                className="w-full border border-gray-200 px-2 py-1 text-[11px] focus:outline-none focus:border-black rounded-lg"
                               />
                             </div>
 
@@ -1011,7 +1013,7 @@ export default function AdminProductsPage() {
                         onClick={() => {
                           setFieldValue("colors", [...values.colors, { hex: "#000000", name: "Black" }]);
                         }}
-                        className="inline-flex items-center px-3 py-1.5 border border-dashed border-gray-300 text-[10px] font-semibold uppercase tracking-wider text-gray-600 hover:border-black hover:text-black bg-white transition-colors w-full justify-center"
+                        className="inline-flex items-center px-3 py-1.5 border border-dashed border-gray-300 text-[10px] font-semibold uppercase tracking-wider text-gray-600 hover:border-black hover:text-black bg-white transition-colors w-full justify-center rounded-lg"
                       >
                         <Plus className="w-3.5 h-3.5 mr-1" /> Add Custom Color
                       </button>
@@ -1032,13 +1034,13 @@ export default function AdminProductsPage() {
                         name="description"
                         rows="3"
                         placeholder="Crafted from fine cotton, this knit polo offers..."
-                        className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black resize-none"
+                        className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black resize-none rounded-lg"
                       />
                       <div className="text-[10px] font-bold text-[#7D1D2B]"><ErrorMessage name="description" /></div>
                     </div>
 
                     {/* Marketing & Media Section */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border border-gray-100 p-4 bg-gray-50/40">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border border-gray-100 p-4 bg-gray-50/40 rounded-2xl">
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold uppercase tracking-wider text-gray-500 flex justify-between">
                           <span>Product Showcase Video (Optional URL)</span>
@@ -1047,7 +1049,7 @@ export default function AdminProductsPage() {
                           type="text"
                           name="video"
                           placeholder="https://player.vimeo.com/external/..."
-                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white"
+                          className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                         />
                         <div className="text-[10px] font-bold text-[#7D1D2B]"><ErrorMessage name="video" /></div>
                       </div>
@@ -1076,7 +1078,7 @@ export default function AdminProductsPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-2.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center"
+                        className="w-full py-2.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center rounded-lg"
                       >
                         {isSubmitting ? "Saving..." : editingProduct ? "Save Changes" : "Add Product to Catalog"}
                       </button>

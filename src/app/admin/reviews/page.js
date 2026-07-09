@@ -123,7 +123,7 @@ export default function AdminReviewsPage() {
             setIsModalOpen(true);
             formik.resetForm();
           }}
-          className="inline-flex items-center space-x-2 px-5 py-2.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-[10px] font-bold uppercase tracking-widest transition-colors shadow-sm self-start"
+          className="inline-flex items-center space-x-2 px-5 py-2.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-[10px] font-bold uppercase tracking-widest transition-colors shadow-sm self-start rounded-lg"
         >
           <Plus className="h-4 w-4" />
           <span>Add Custom Review</span>
@@ -131,7 +131,7 @@ export default function AdminReviewsPage() {
       </div>
 
       {/* Main Reviews List */}
-      <div className="bg-white border border-gray-200">
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-xs overflow-hidden">
         {loading && reviews.length === 0 ? (
           <div className="p-6 space-y-4">
             {[...Array(5)].map((_, i) => (
@@ -349,7 +349,7 @@ export default function AdminReviewsPage() {
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
-                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center"
+                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center rounded-lg"
               >
                 <ChevronLeft className="h-3.5 w-3.5 mr-1" /> Prev
               </button>
@@ -361,7 +361,7 @@ export default function AdminReviewsPage() {
                   <button
                     key={pageNum}
                     onClick={() => setCurrentPage(pageNum)}
-                    className={`px-3 py-1.5 border text-[10px] font-bold tracking-wider transition-all ${
+                    className={`px-3 py-1.5 border text-[10px] font-bold tracking-wider transition-all rounded-lg ${
                       currentPage === pageNum
                         ? "bg-[#C5A880] text-black border-[#C5A880]"
                         : "border-gray-200 text-black hover:bg-gray-50"
@@ -375,7 +375,7 @@ export default function AdminReviewsPage() {
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(currentPage + 1)}
-                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center"
+                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center rounded-lg"
               >
                 Next <ChevronRight className="h-3.5 w-3.5 ml-1" />
               </button>
@@ -394,7 +394,7 @@ export default function AdminReviewsPage() {
           />
 
           {/* Dialog Container */}
-          <div className="relative bg-white max-w-md w-full border border-gray-200 p-8 shadow-2xl z-10 space-y-6 max-h-[90vh] overflow-y-auto">
+          <div className="relative bg-white max-w-md w-full border border-gray-200 p-8 shadow-2xl z-10 space-y-6 max-h-[90vh] overflow-y-auto rounded-2xl">
             {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
@@ -427,7 +427,7 @@ export default function AdminReviewsPage() {
                   name="productId"
                   value={formik.values.productId}
                   onChange={formik.handleChange}
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-none"
+                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                 >
                   <option value="">General Feedback / Store-wide</option>
                   {products.map((p) => (
@@ -447,7 +447,7 @@ export default function AdminReviewsPage() {
                   name="rating"
                   value={formik.values.rating}
                   onChange={formik.handleChange}
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-none font-semibold text-black"
+                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-lg font-semibold text-black"
                 >
                   <option value={5}>⭐⭐⭐⭐⭐ (5 Stars)</option>
                   <option value={4}>⭐⭐⭐⭐ (4 Stars)</option>
@@ -469,7 +469,7 @@ export default function AdminReviewsPage() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="e.g. Maria B."
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-none"
+                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                 />
                 {formik.touched.name && formik.errors.name && (
                   <div className="text-[10px] text-rose-600 font-bold mt-1">
@@ -490,7 +490,7 @@ export default function AdminReviewsPage() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder="e.g. maria@example.com"
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-none"
+                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                 />
                 {formik.touched.email && formik.errors.email && (
                   <div className="text-[10px] text-rose-600 font-bold mt-1">
@@ -511,7 +511,7 @@ export default function AdminReviewsPage() {
                   onBlur={formik.handleBlur}
                   rows={4}
                   placeholder="Paste or write the review comments here..."
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-none resize-none font-light"
+                  className="w-full border border-gray-250 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white rounded-lg resize-none font-light"
                 />
                 {formik.touched.comment && formik.errors.comment && (
                   <div className="text-[10px] text-rose-600 font-bold mt-1">
@@ -524,7 +524,7 @@ export default function AdminReviewsPage() {
               <button
                 type="submit"
                 disabled={formik.isSubmitting}
-                className="w-full py-3 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center"
+                className="w-full py-3 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center rounded-lg"
               >
                 {formik.isSubmitting ? "Saving review..." : "Save Testimonial"}
               </button>

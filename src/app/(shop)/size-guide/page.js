@@ -22,7 +22,7 @@ export default function SizeGuidePage() {
         </div>
 
         {/* 1. Women's Koti Sizing Table */}
-        <div className="bg-white p-8 border border-[#E4E4E7] shadow-xs space-y-6">
+        <div className="bg-white p-8 border border-[#E4E4E7] shadow-xs space-y-6 rounded-2xl">
           <h2 className="font-serif text-2xl font-light uppercase tracking-wider text-[#1E1E24]">
             Women's Koti & Waistcoat Sizing (Inches)
           </h2>
@@ -76,7 +76,7 @@ export default function SizeGuidePage() {
         </div>
 
         {/* 2. Kids' Waistcoat Sizing Table */}
-        <div className="bg-white p-8 border border-[#E4E4E7] shadow-xs space-y-6">
+        <div className="bg-white p-8 border border-[#E4E4E7] shadow-xs space-y-6 rounded-2xl">
           <h2 className="font-serif text-2xl font-light uppercase tracking-wider text-[#1E1E24]">
             Kids' Festive Waistcoat Sizing
           </h2>
@@ -102,7 +102,7 @@ export default function SizeGuidePage() {
         </div>
 
         {/* 3. Garment Care Guidelines */}
-        <div className="bg-[#1E1E24] text-white p-8 space-y-6 shadow-md">
+        <div className="bg-[#1E1E24] text-white p-8 space-y-6 shadow-md rounded-2xl">
           <div className="flex items-center space-x-2 text-[#C5A880]">
             <Shield className="h-5 w-5" />
             <h3 className="font-serif text-lg font-semibold uppercase tracking-wider">Garment Preservation & Care</h3>
@@ -127,7 +127,7 @@ export default function SizeGuidePage() {
         <div className="text-center pt-4">
           <Link
             href="/custom-order"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-[#1E1E24] hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-sm"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-[#1E1E24] hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-sm rounded-lg"
           >
             <Scissors className="h-4 w-4" />
             <span>Need Custom Fit? Visit Custom Studio</span>

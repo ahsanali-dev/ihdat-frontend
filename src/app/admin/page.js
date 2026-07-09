@@ -67,7 +67,7 @@ export default function AdminDashboardOverview() {
         {/* Grid Stats Skeleton */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-white p-6 border border-gray-200 shadow-xs space-y-4">
+            <div key={i} className="bg-white p-6 border border-gray-200 shadow-xs space-y-4 rounded-2xl">
               <div className="flex justify-between items-start">
                 <div className="space-y-2 w-2/3">
                   <div className="w-1/2"><Skeleton height={10} /></div>
@@ -84,7 +84,7 @@ export default function AdminDashboardOverview() {
         {/* Dashboard Sub-grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Recent Orders Skeleton - 8 cols */}
-          <div className="lg:col-span-8 bg-white border border-gray-200 p-6 space-y-6">
+          <div className="lg:col-span-8 bg-white border border-gray-200 p-6 space-y-6 rounded-2xl">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold uppercase tracking-wider text-gray-800">
                 Recent Orders
@@ -108,7 +108,7 @@ export default function AdminDashboardOverview() {
           </div>
 
           {/* Low Stock Alerts Skeleton - 4 cols */}
-          <div className="lg:col-span-4 bg-white border border-gray-200 p-6 space-y-6">
+          <div className="lg:col-span-4 bg-white border border-gray-200 p-6 space-y-6 rounded-2xl">
             <h3 className="text-sm font-bold uppercase tracking-wider text-gray-800 flex items-center">
               <AlertTriangle className="h-4 w-4 text-amber-500 mr-2" /> Stock Warnings
             </h3>
@@ -152,7 +152,7 @@ export default function AdminDashboardOverview() {
         {stats.map((item) => {
           const Icon = item.icon;
           return (
-            <div key={item.name} className="bg-white p-6 border border-gray-200 shadow-xs flex flex-col justify-between">
+            <div key={item.name} className="bg-white p-6 border border-gray-200 shadow-xs flex flex-col justify-between rounded-2xl">
               <div className="flex justify-between items-start">
                 <div className="space-y-1">
                   <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
@@ -160,7 +160,7 @@ export default function AdminDashboardOverview() {
                   </p>
                   <p className="text-2xl font-bold text-gray-900">{item.value}</p>
                 </div>
-                <div className={`p-2.5 rounded-sm text-white ${item.color}`}>
+                <div className={`p-2.5 rounded-lg text-white ${item.color}`}>
                   <Icon className="h-5 w-5" />
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function AdminDashboardOverview() {
       {/* Dashboard Sub-grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Recent Orders - 8 cols */}
-        <div className="lg:col-span-8 bg-white border border-gray-200 p-6 space-y-6">
+        <div className="lg:col-span-8 bg-white border border-gray-200 p-6 space-y-6 rounded-2xl">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold uppercase tracking-wider text-gray-800">
               Recent Orders
@@ -277,7 +277,7 @@ export default function AdminDashboardOverview() {
         </div>
 
         {/* Low Stock Alerts - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-gray-200 p-6 space-y-6">
+        <div className="lg:col-span-4 bg-white border border-gray-200 p-6 space-y-6 rounded-2xl">
           <h3 className="text-sm font-bold uppercase tracking-wider text-gray-800 flex items-center">
             <AlertTriangle className="h-4 w-4 text-amber-500 mr-2" /> Stock Warnings
           </h3>
@@ -297,7 +297,7 @@ export default function AdminDashboardOverview() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-sm border border-amber-200 text-[10px]">
+                    <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200 text-[10px]">
                       {prod.stock} left
                     </span>
                   </div>

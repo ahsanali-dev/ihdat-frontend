@@ -87,12 +87,12 @@ export default function Footer() {
               <input
                 type="email"
                 required
-                className="min-w-0 flex-auto rounded-none border border-[#FAF6F0]/20 bg-transparent px-3 py-2 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-[#C5A880]"
+                className="min-w-0 flex-auto rounded-lg border border-[#FAF6F0]/20 bg-transparent px-3 py-2 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-[#C5A880]"
                 placeholder="Enter your email"
               />
               <button
                 type="submit"
-                className="flex-none bg-[#C5A880] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-black hover:bg-[#FAF6F0] transition-colors"
+                className="flex-none bg-[#C5A880] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-black hover:bg-[#FAF6F0] transition-colors rounded-lg"
               >
                 Join
               </button>

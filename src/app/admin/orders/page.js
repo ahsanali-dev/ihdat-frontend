@@ -84,7 +84,7 @@ export default function AdminOrdersPage() {
       {loading ? (
         <div className="space-y-4">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left">
+            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left rounded-2xl">
               <div className="flex justify-between items-center">
                 <div className="space-y-2 w-1/3">
                   <Skeleton height={14} width="80%" />
@@ -108,7 +108,7 @@ export default function AdminOrdersPage() {
           const totalItemsCount = ord.items.reduce((sum, item) => sum + item.quantity, 0);
 
           return (
-            <div key={ord.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4">
+            <div key={ord.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 rounded-2xl">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="font-bold text-black text-sm">{ord.id}</p>
@@ -120,7 +120,7 @@ export default function AdminOrdersPage() {
                 <select
                   value={ord.status}
                   onChange={(e) => handleStatusChange(ord.id, e.target.value)}
-                  className={`text-[10px] font-bold px-2 py-1 rounded-sm border focus:outline-none bg-white ${
+                  className={`text-[10px] font-bold px-2 py-1 rounded-lg border focus:outline-none bg-white ${
                     ord.status === "Delivered"
                       ? "text-emerald-700 border-emerald-200 bg-emerald-50"
                       : ord.status === "Pending"
@@ -219,166 +219,167 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Desktop Orders Table Layout (Hidden on Mobile) */}
-      <div className="hidden md:block bg-white border border-gray-200 shadow-xs overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200 text-left text-xs">
-          <thead className="bg-gray-50">
-            <tr className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">
-              <th className="px-6 py-4">Order ID</th>
-              <th className="px-6 py-4">Customer Name</th>
-              <th className="px-6 py-4">Purchase Date</th>
-              <th className="px-6 py-4 text-center">Items Qty</th>
-              <th className="px-6 py-4 text-right">Charged Amount</th>
-              <th className="px-6 py-4 text-center">Order Status</th>
-              <th className="px-6 py-4 text-center">Details</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 text-gray-700 bg-white">
-            {paginatedOrders.map((ord) => {
-              const isExpanded = expandedOrderId === ord.id;
-              const totalItemsCount = ord.items.reduce((sum, item) => sum + item.quantity, 0);
+      <div className="hidden md:block bg-white border border-gray-200 shadow-xs rounded-2xl overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200 text-left text-xs">
+            <thead className="bg-gray-50">
+              <tr className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">
+                <th className="px-6 py-4">Order ID</th>
+                <th className="px-6 py-4">Customer Name</th>
+                <th className="px-6 py-4">Purchase Date</th>
+                <th className="px-6 py-4 text-center">Items Qty</th>
+                <th className="px-6 py-4 text-right">Charged Amount</th>
+                <th className="px-6 py-4 text-center">Order Status</th>
+                <th className="px-6 py-4 text-center">Details</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 text-gray-700 bg-white">
+              {paginatedOrders.map((ord) => {
+                const isExpanded = expandedOrderId === ord.id;
+                const totalItemsCount = ord.items.reduce((sum, item) => sum + item.quantity, 0);
 
-              return (
-                <Fragment key={ord.id}>
-                  {/* Summary Row */}
-                  <tr className="hover:bg-gray-50/40 transition-colors">
-                    <td className="px-6 py-4 font-bold text-black">{ord.id}</td>
-                    <td className="px-6 py-4">
-                      <div>
-                        <p className="font-semibold text-black">{ord.customer.name}</p>
-                        <p className="text-[10px] text-gray-400">{ord.customer.email}</p>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-gray-500">
-                      {new Date(ord.createdAt).toLocaleDateString()} at{" "}
-                      {new Date(ord.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </td>
-                    <td className="px-6 py-4 text-center font-bold text-gray-600">
-                      {totalItemsCount}
-                    </td>
-                    <td className="px-6 py-4 text-right font-bold text-black">Rs. {ord.totalAmount.toLocaleString()}</td>
-                    <td className="px-6 py-4 text-center">
-                      <select
-                        value={ord.status}
-                        onChange={(e) => handleStatusChange(ord.id, e.target.value)}
-                        className={`text-xs font-semibold px-2 py-1 rounded-sm border focus:outline-none bg-white ${
-                          ord.status === "Delivered"
-                            ? "text-emerald-700 border-emerald-200 bg-emerald-50"
-                            : ord.status === "Pending"
-                            ? "text-amber-700 border-amber-200 bg-amber-50"
-                            : ord.status === "Cancelled"
-                            ? "text-rose-700 border-rose-200 bg-rose-50"
-                            : "text-blue-700 border-blue-200 bg-blue-50"
-                        }`}
-                      >
-                        <option value="Pending">Pending</option>
-                        <option value="Processing">Processing</option>
-                        <option value="Shipped">Shipped</option>
-                        <option value="Delivered">Delivered</option>
-                        <option value="Cancelled">Cancelled</option>
-                      </select>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <button
-                        onClick={() => toggleExpand(ord.id)}
-                        className="text-gray-400 hover:text-black p-1 transition-colors"
-                      >
-                        {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                      </button>
-                    </td>
-                  </tr>
-
-                  {/* Expanded Items Details Accordion Row */}
-                  {isExpanded && (
-                    <tr className="bg-gray-50/50">
-                      <td colSpan="7" className="px-8 py-6 border-b border-gray-200">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
-                          {/* Shipping Details */}
-                          <div className="space-y-3">
-                            <h4 className="font-bold uppercase tracking-widest text-[#111111] flex items-center">
-                              <Package className="h-3.5 w-3.5 mr-1 text-[#C5A880]" /> Shipping & Contact Info
-                            </h4>
-                            <div className="space-y-1.5 text-gray-600 tracking-wider">
-                              <p><span className="font-bold text-gray-800">Address:</span> {ord.customer.address}</p>
-                              <p><span className="font-bold text-gray-800">City:</span> {ord.customer.city}, {ord.customer.postalCode}</p>
-                              <p><span className="font-bold text-gray-800">Phone:</span> {ord.customer.phone}</p>
-                            </div>
-                          </div>
-
-                          {/* Items Details List */}
-                          <div className="space-y-3">
-                            <h4 className="font-bold uppercase tracking-widest text-[#111111] flex items-center">
-                              <Package className="h-3.5 w-3.5 mr-1 text-[#C5A880]" /> Garments Purchased (Click name to view details)
-                            </h4>
-                            <div className="divide-y divide-gray-200">
-                              {ord.items.map((item, idx) => {
-                                const productObj = products.find(
-                                  (p) => p.id === item.productId || p.name.toLowerCase() === item.name.toLowerCase()
-                                );
-                                const itemImage = item.image || (productObj && productObj.images && productObj.images[0] ? productObj.images[0] : "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600");
-                                
-                                return (
-                                  <div key={idx} className="py-2.5 flex justify-between items-center text-gray-600 tracking-wider gap-4">
-                                    <div className="flex items-center space-x-3">
-                                      {/* Order row thumbnail */}
-                                      <div className="h-10 w-8 border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0 relative shadow-2xs">
-                                        {itemImage ? (
-                                          <img
-                                            src={itemImage}
-                                            alt={item.name}
-                                            className="absolute inset-0 h-full w-full object-cover object-center"
-                                          />
-                                        ) : (
-                                          <span className="text-[9px] uppercase font-bold text-gray-400">{item.size}</span>
-                                        )}
-                                      </div>
-                                      <div>
-                                        <button
-                                          onClick={() => handleProductClick(item)}
-                                          className="font-bold text-left text-black font-serif hover:text-[#C5A880] transition-colors underline decoration-dotted decoration-gray-400"
-                                          title="Inspect product"
-                                        >
-                                          {item.name}
-                                        </button>
-                                        <p className="text-[10px] text-gray-400 mt-0.5">
-                                          Size: {item.size} | Color: {item.color || "Default"}
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div className="text-right">
-                                      <p className="font-bold text-black">Rs. {item.price.toLocaleString()} x {item.quantity}</p>
-                                      <p className="text-[10px] text-gray-400">Subtotal: Rs. {(item.price * item.quantity).toLocaleString()}</p>
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
+                return (
+                  <Fragment key={ord.id}>
+                    {/* Summary Row */}
+                    <tr className="hover:bg-gray-50/40 transition-colors">
+                      <td className="px-6 py-4 font-bold text-black">{ord.id}</td>
+                      <td className="px-6 py-4">
+                        <div>
+                          <p className="font-semibold text-black">{ord.customer.name}</p>
+                          <p className="text-[10px] text-gray-400">{ord.customer.email}</p>
                         </div>
                       </td>
+                      <td className="px-6 py-4 text-gray-500">
+                        {new Date(ord.createdAt).toLocaleDateString()} at{" "}
+                        {new Date(ord.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                      </td>
+                      <td className="px-6 py-4 text-center font-bold text-gray-600">
+                        {totalItemsCount}
+                      </td>
+                      <td className="px-6 py-4 text-right font-bold text-black">Rs. {ord.totalAmount.toLocaleString()}</td>
+                      <td className="px-6 py-4 text-center">
+                        <select
+                          value={ord.status}
+                          onChange={(e) => handleStatusChange(ord.id, e.target.value)}
+                          className={`text-xs font-semibold px-2 py-1 rounded-lg border focus:outline-none bg-white ${
+                            ord.status === "Delivered"
+                              ? "text-emerald-700 border-emerald-200 bg-emerald-50"
+                              : ord.status === "Pending"
+                              ? "text-amber-700 border-amber-200 bg-amber-50"
+                              : ord.status === "Cancelled"
+                              ? "text-rose-700 border-rose-200 bg-rose-50"
+                              : "text-blue-700 border-blue-200 bg-blue-50"
+                          }`}
+                        >
+                          <option value="Pending">Pending</option>
+                          <option value="Processing">Processing</option>
+                          <option value="Shipped">Shipped</option>
+                          <option value="Delivered">Delivered</option>
+                          <option value="Cancelled">Cancelled</option>
+                        </select>
+                      </td>
+                      <td className="px-6 py-4 text-center">
+                        <button
+                          onClick={() => toggleExpand(ord.id)}
+                          className="text-gray-400 hover:text-black p-1 transition-colors"
+                        >
+                          {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        </button>
+                      </td>
                     </tr>
-                  )}
-                </Fragment>
-              );
-            })}
-          </tbody>
-        </table>
+
+                    {/* Expanded Items Details Accordion Row */}
+                    {isExpanded && (
+                      <tr className="bg-gray-50/50">
+                        <td colSpan="7" className="px-8 py-6 border-b border-gray-200">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-xs">
+                            {/* Shipping Details */}
+                            <div className="space-y-3">
+                              <h4 className="font-bold uppercase tracking-widest text-[#111111] flex items-center">
+                                <Package className="h-3.5 w-3.5 mr-1 text-[#C5A880]" /> Shipping & Contact Info
+                              </h4>
+                              <div className="space-y-1.5 text-gray-600 tracking-wider">
+                                <p><span className="font-bold text-gray-800">Address:</span> {ord.customer.address}</p>
+                                <p><span className="font-bold text-gray-800">City:</span> {ord.customer.city}, {ord.customer.postalCode}</p>
+                                <p><span className="font-bold text-gray-800">Phone:</span> {ord.customer.phone}</p>
+                              </div>
+                            </div>
+
+                            {/* Items Details List */}
+                            <div className="space-y-3">
+                              <h4 className="font-bold uppercase tracking-widest text-[#111111] flex items-center">
+                                <Package className="h-3.5 w-3.5 mr-1 text-[#C5A880]" /> Garments Purchased (Click name to view details)
+                              </h4>
+                              <div className="divide-y divide-gray-200">
+                                {ord.items.map((item, idx) => {
+                                  const productObj = products.find(
+                                    (p) => p.id === item.productId || p.name.toLowerCase() === item.name.toLowerCase()
+                                  );
+                                  const itemImage = item.image || (productObj && productObj.images && productObj.images[0] ? productObj.images[0] : "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600");
+                                  
+                                  return (
+                                    <div key={idx} className="py-2.5 flex justify-between items-center text-gray-600 tracking-wider gap-4">
+                                      <div className="flex items-center space-x-3">
+                                        <div className="h-10 w-8 border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0 relative rounded-lg shadow-2xs">
+                                          {itemImage ? (
+                                            <img
+                                              src={itemImage}
+                                              alt={item.name}
+                                              className="absolute inset-0 h-full w-full object-cover object-center"
+                                            />
+                                          ) : (
+                                            <span className="text-[9px] uppercase font-bold text-gray-400">{item.size}</span>
+                                          )}
+                                        </div>
+                                        <div>
+                                          <button
+                                            onClick={() => handleProductClick(item)}
+                                            className="font-bold text-left text-black font-serif hover:text-[#8E7045] transition-colors underline decoration-dotted decoration-gray-400"
+                                            title="Inspect product"
+                                          >
+                                            {item.name}
+                                          </button>
+                                          <p className="text-[10px] text-gray-400 mt-0.5">
+                                            Size: {item.size} | Color: {item.color || "Default"}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div className="text-right">
+                                        <p className="font-bold text-black">Rs. {item.price.toLocaleString()} x {item.quantity}</p>
+                                        <p className="text-[10px] text-gray-400">Subtotal: Rs. {(item.price * item.quantity).toLocaleString()}</p>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </Fragment>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-3 sm:px-6 rounded-lg mt-4">
           <div className="flex flex-1 justify-between sm:hidden">
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               Previous
             </button>
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              className="relative ml-3 inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative ml-3 inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               Next
             </button>
@@ -392,7 +393,7 @@ export default function AdminOrdersPage() {
               </p>
             </div>
             <div>
-              <nav className="isolate inline-flex -space-x-px bg-white" aria-label="Pagination">
+              <nav className="isolate inline-flex -space-x-px bg-white rounded-lg overflow-hidden" aria-label="Pagination">
                 <button
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -451,7 +452,7 @@ export default function AdminOrdersPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ type: "spring", duration: 0.3 }}
-              className="relative bg-white max-w-2xl w-full p-6 shadow-2xl flex flex-col border border-gray-200 z-10"
+              className="relative bg-white max-w-2xl w-full p-6 shadow-2xl flex flex-col border border-gray-200 z-10 rounded-2xl"
             >
               {/* Header */}
               <div className="flex justify-between items-start pb-4 border-b border-gray-100">
@@ -474,7 +475,7 @@ export default function AdminOrdersPage() {
               {/* Body details with image split grid */}
               <div className="py-6 grid grid-cols-1 sm:grid-cols-12 gap-6">
                 {/* Left: Product Image */}
-                <div className="sm:col-span-5 bg-gray-50 border border-gray-200 flex items-center justify-center overflow-hidden aspect-[3/4] relative shadow-2xs">
+                <div className="sm:col-span-5 bg-gray-50 border border-gray-200 flex items-center justify-center overflow-hidden aspect-[3/4] relative shadow-2xs rounded-lg">
                   {inspectedProduct.images && inspectedProduct.images[0] ? (
                     <img
                       src={inspectedProduct.images[0]}
@@ -489,7 +490,7 @@ export default function AdminOrdersPage() {
                 {/* Right: Product specs */}
                 <div className="sm:col-span-7 space-y-4 text-xs">
                   {/* Stats row */}
-                  <div className="grid grid-cols-2 gap-4 bg-gray-50 p-3 border border-gray-100">
+                  <div className="grid grid-cols-2 gap-4 bg-gray-50 p-3 border border-gray-100 rounded-lg">
                     <div>
                       <span className="text-[10px] text-gray-400 uppercase font-semibold">Catalog Price</span>
                       <p className="font-bold text-black text-sm">Rs. {inspectedProduct.price.toLocaleString()}</p>
@@ -511,7 +512,7 @@ export default function AdminOrdersPage() {
                     <span className="text-[10px] text-gray-400 uppercase font-semibold">Catalog Sizes</span>
                     <div className="flex flex-wrap gap-1.5 pt-0.5">
                       {inspectedProduct.sizes.map((sz) => (
-                        <span key={sz} className="bg-gray-100 px-2 py-0.5 font-semibold text-gray-600 rounded-sm">
+                        <span key={sz} className="bg-gray-100 px-2 py-0.5 font-semibold text-gray-600 rounded-lg">
                           {sz}
                         </span>
                       ))}
@@ -524,7 +525,7 @@ export default function AdminOrdersPage() {
                       <span className="text-[10px] text-gray-400 uppercase font-semibold">Catalog Colors</span>
                       <div className="flex flex-wrap gap-2 items-center pt-0.5">
                         {inspectedProduct.colors.map((color, index) => (
-                          <div key={color} className="flex items-center space-x-1 border border-gray-100 p-1 bg-gray-50/50 rounded-sm">
+                          <div key={color} className="flex items-center space-x-1 border border-gray-100 p-1 bg-gray-50/50 rounded-lg">
                             <span
                               className="h-3.5 w-3.5 rounded-full border border-gray-200 block shadow-xs"
                               style={{ backgroundColor: color }}
@@ -544,7 +545,7 @@ export default function AdminOrdersPage() {
               <div className="pt-4 border-t border-gray-100 flex justify-end">
                 <button
                   onClick={() => setInspectedProduct(null)}
-                  className="px-4 py-2 bg-black text-white text-[10px] font-bold uppercase tracking-wider hover:bg-[#C5A880] hover:text-black transition-colors"
+                  className="px-4 py-2 bg-black text-white text-[10px] font-bold uppercase tracking-wider hover:bg-[#C5A880] hover:text-black transition-colors rounded-lg"
                 >
                   Close Inspection
                 </button>

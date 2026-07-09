@@ -134,7 +134,7 @@ export default function ReviewsSection({ productId = null, productName = null })
         {/* Button to Trigger Modal */}
         <button
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center space-x-2 px-6 py-3.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-[10px] font-bold uppercase tracking-widest transition-colors shadow-sm self-start md:self-end"
+          className="inline-flex items-center space-x-2 px-6 py-3.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-[10px] font-bold uppercase tracking-widest transition-colors shadow-sm self-start md:self-end rounded-lg"
         >
           <Edit3 className="h-3.5 w-3.5" />
           <span>Write A Review</span>
@@ -149,7 +149,7 @@ export default function ReviewsSection({ productId = null, productName = null })
             <p className="text-xs text-gray-500 font-light tracking-widest">Loading reviews...</p>
           </div>
         ) : reviews.length === 0 ? (
-          <div className="border border-dashed border-gray-200 p-16 text-center rounded-xs space-y-2 max-w-2xl mx-auto">
+          <div className="border border-dashed border-gray-200 p-16 text-center rounded-2xl space-y-2 max-w-2xl mx-auto">
             <MessageSquare className="h-8 w-8 text-gray-300 mx-auto" />
             <p className="text-sm font-medium text-gray-600">No reviews yet</p>
             <p className="text-xs text-gray-400">
@@ -174,7 +174,7 @@ export default function ReviewsSection({ productId = null, productName = null })
               >
                 {reviews.map((rev) => (
                   <SwiperSlide key={rev.id || rev._id} className="h-auto pb-4">
-                    <div className="relative bg-white p-8 border border-zinc-200/80 hover:border-[#C5A880]/70 transition-all duration-300 h-full flex flex-col justify-between min-h-[250px] group/card hover:shadow-[0_12px_40px_rgba(197,168,128,0.06)] rounded-xs">
+                    <div className="relative bg-white p-8 border border-zinc-200/80 hover:border-[#C5A880]/70 transition-all duration-300 h-full flex flex-col justify-between min-h-[250px] group/card hover:shadow-[0_12px_40px_rgba(197,168,128,0.06)] rounded-2xl">
                       {/* Quote Mark Watermark */}
                       <div className="absolute top-6 right-6 opacity-[0.08] text-[#C5A880] select-none pointer-events-none group-hover/card:scale-110 group-hover/card:opacity-[0.15] transition-all duration-500">
                         <Quote className="h-8 w-8" />
@@ -275,7 +275,7 @@ export default function ReviewsSection({ productId = null, productName = null })
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative bg-white max-w-lg w-full border border-gray-100 p-8 shadow-2xl z-10 space-y-6 flex flex-col max-h-[90vh] overflow-y-auto"
+              className="relative bg-white max-w-lg w-full border border-gray-100 p-8 shadow-2xl z-10 space-y-6 flex flex-col max-h-[90vh] overflow-y-auto rounded-2xl"
             >
               {/* Close Button */}
               <button
@@ -327,7 +327,7 @@ export default function ReviewsSection({ productId = null, productName = null })
                       name="productId"
                       value={formik.values.productId}
                       onChange={handleProductChange}
-                      className="w-full bg-[#FAF6F0]/40 border border-gray-200 px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors rounded-none"
+                      className="w-full bg-[#FAF6F0]/40 border border-gray-200 px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors rounded-lg"
                     >
                       <option value="">General Store Review</option>
                       {products.map((p) => (
@@ -393,7 +393,7 @@ export default function ReviewsSection({ productId = null, productName = null })
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     placeholder="e.g. Ayesha Khan"
-                    className={`w-full bg-[#FAF6F0]/40 border px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors ${
+                    className={`w-full bg-[#FAF6F0]/40 border rounded-lg px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors ${
                       formik.touched.name && formik.errors.name ? "border-[#7D1D2B]/50" : "border-gray-200"
                     }`}
                     disabled={loading || submitSuccess}
@@ -416,7 +416,7 @@ export default function ReviewsSection({ productId = null, productName = null })
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     placeholder="e.g. ayesha@example.com"
-                    className={`w-full bg-[#FAF6F0]/40 border px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors ${
+                    className={`w-full bg-[#FAF6F0]/40 border rounded-lg px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors ${
                       formik.touched.email && formik.errors.email ? "border-[#7D1D2B]/50" : "border-gray-200"
                     }`}
                     disabled={loading || submitSuccess}
@@ -438,7 +438,7 @@ export default function ReviewsSection({ productId = null, productName = null })
                     onBlur={formik.handleBlur}
                     placeholder="Write your review here. Tell us about the fabric quality, stitching, embroidery, or sizing fit..."
                     rows={4}
-                    className={`w-full bg-[#FAF6F0]/40 border px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors resize-none ${
+                    className={`w-full bg-[#FAF6F0]/40 border rounded-lg px-4 py-3 text-xs tracking-wider focus:outline-none focus:border-[#C5A880] transition-colors resize-none ${
                       formik.touched.comment && formik.errors.comment ? "border-[#7D1D2B]/50" : "border-gray-200"
                     }`}
                     disabled={loading || submitSuccess}
@@ -452,7 +452,7 @@ export default function ReviewsSection({ productId = null, productName = null })
                 <button
                   type="submit"
                   disabled={loading || submitSuccess}
-                  className="w-full py-4 bg-black hover:bg-[#C5A880] hover:text-black text-white text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2 shadow-sm disabled:bg-gray-400 disabled:text-white disabled:hover:bg-gray-400"
+                  className="w-full py-4 bg-black hover:bg-[#C5A880] hover:text-black text-white text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2 shadow-sm disabled:bg-gray-400 disabled:text-white disabled:hover:bg-gray-400 rounded-lg"
                 >
                   {loading ? (
                     <div className="h-3.5 w-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />

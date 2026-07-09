@@ -145,7 +145,7 @@ export default function SlideCartDrawer() {
                         {/* Actions Row */}
                         <div className="flex items-center justify-between">
                           {/* Quantity Selector */}
-                          <div className="flex items-center border border-[#E4E4E7] rounded-none bg-white">
+                          <div className="flex items-center border border-[#E4E4E7] rounded-lg bg-white overflow-hidden">
                             <button
                               onClick={() => handleQtyChange(item.id, item.color, item.size, item.quantity, -1)}
                               className="px-2 py-1 text-[#71717A] hover:text-[#111111] transition-colors"
@@ -192,14 +192,14 @@ export default function SlideCartDrawer() {
                     <Link
                       href="/checkout"
                       onClick={handleClose}
-                      className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-[#C5A880] hover:text-black transition-colors"
+                      className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-[#C5A880] hover:text-black transition-colors rounded-lg"
                     >
                       Checkout
                     </Link>
                     <Link
                       href="/products"
                       onClick={handleClose}
-                      className="w-full flex items-center justify-center px-6 py-2 border border-[#E4E4E7] text-xs font-semibold uppercase tracking-widest text-[#111111] bg-white hover:bg-[#E4E4E7]/30 transition-colors"
+                      className="w-full flex items-center justify-center px-6 py-2 border border-[#E4E4E7] text-xs font-semibold uppercase tracking-widest text-[#111111] bg-white hover:bg-[#E4E4E7]/30 transition-colors rounded-lg"
                     >
                       Continue Shopping
                     </Link>

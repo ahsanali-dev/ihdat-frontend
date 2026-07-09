@@ -21,13 +21,16 @@ import {
   LogOut,
   AlertCircle,
   MessageSquare,
-  Scissors
+  Scissors,
+  Eye,
+  EyeOff
 } from "lucide-react";
 
 // Admin Login Portal Component
 function AdminLogin() {
   const dispatch = useDispatch();
   const [errorMsg, setErrorMsg] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -54,14 +57,14 @@ function AdminLogin() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full bg-[#FAF6F0] p-8 border border-white/5 shadow-2xl space-y-6 flex flex-col items-center"
+        className="max-w-md w-full bg-[#FAF6F0] p-8 border border-white/5 shadow-2xl space-y-6 flex flex-col items-center rounded-2xl"
       >
         <div className="flex flex-col items-center space-y-2">
           <Sparkles className="h-10 w-10 text-[#C5A880]" />
           <h2 className="font-serif text-3xl font-light tracking-[0.2em] uppercase text-black">
             ihdat
           </h2>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-[#C5A880] border border-[#C5A880]/30 px-2 py-0.5 rounded-sm">
+          <span className="text-[9px] font-bold uppercase tracking-widest text-[#C5A880] border border-[#C5A880]/30 px-2 py-0.5 rounded-lg">
             Control Portal
           </span>
         </div>
@@ -76,7 +79,7 @@ function AdminLogin() {
           {({ isSubmitting }) => (
             <Form className="space-y-4 w-full">
               {errorMsg && (
-                <div className="bg-rose-50 border border-rose-200 text-rose-800 text-[10px] p-3 flex items-start space-x-2 font-medium tracking-wide">
+                <div className="bg-rose-50 border border-rose-200 text-rose-800 text-[10px] p-3 flex items-start space-x-2 font-medium tracking-wide rounded-lg">
                   <AlertCircle className="h-4 w-4 text-rose-600 flex-shrink-0 mt-0.5" />
                   <span>{errorMsg}</span>
                 </div>
@@ -90,7 +93,7 @@ function AdminLogin() {
                   type="email"
                   name="email"
                   placeholder="admin@ihdat.com"
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white text-black"
+                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white text-black rounded-lg"
                 />
                 <div className="text-[10px] font-bold text-rose-700 mt-0.5">
                   <ErrorMessage name="email" />
@@ -101,12 +104,25 @@ function AdminLogin() {
                 <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">
                   Password
                 </label>
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="••••••••"
-                  className="w-full border border-gray-200 px-3 py-2.5 text-xs focus:outline-none focus:border-black bg-white text-black"
-                />
+                <div className="relative">
+                  <Field
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="••••••••"
+                    className="w-full border border-gray-200 pl-3 pr-10 py-2.5 text-xs focus:outline-none focus:border-black bg-white text-black rounded-lg"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black focus:outline-none"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </button>
+                </div>
                 <div className="text-[10px] font-bold text-rose-700 mt-0.5">
                   <ErrorMessage name="password" />
                 </div>
@@ -115,7 +131,7 @@ function AdminLogin() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-black hover:bg-[#C5A880] hover:text-black text-[#FAF6F0] text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center mt-2"
+                className="w-full py-3 bg-black hover:bg-[#C5A880] hover:text-black text-[#FAF6F0] text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center mt-2 rounded-lg"
               >
                 {isSubmitting ? "Authenticating..." : "Sign In to Portal"}
               </button>
@@ -187,7 +203,7 @@ export default function AdminLayout({ children }) {
                 ihdat
               </span>
             </Link>
-            <span className="ml-2 text-[9px] font-bold uppercase tracking-widest text-[#C5A880] border border-[#C5A880]/30 px-1 rounded-sm">
+            <span className="ml-2 text-[9px] font-bold uppercase tracking-widest text-[#C5A880] border border-[#C5A880]/30 px-1 rounded-lg">
               Admin
             </span>
           </div>
@@ -202,7 +218,7 @@ export default function AdminLayout({ children }) {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`group flex items-center px-4 py-3 text-xs font-semibold tracking-wider uppercase transition-colors ${
+                    className={`group flex items-center px-4 py-3 text-xs font-semibold tracking-wider uppercase transition-colors rounded-lg ${
                       isActive
                         ? "bg-[#C5A880] text-black"
                         : "text-[#A1A1AA] hover:bg-white/5 hover:text-white"
@@ -272,7 +288,7 @@ export default function AdminLayout({ children }) {
                     key={item.name}
                     href={item.href}
                     onClick={() => setSidebarOpen(false)}
-                    className={`flex items-center px-4 py-3 text-xs font-semibold tracking-wider uppercase rounded-none transition-colors ${
+                    className={`flex items-center px-4 py-3 text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors ${
                       isActive
                         ? "bg-[#C5A880] text-black"
                         : "text-[#A1A1AA] hover:bg-white/5 hover:text-white"
@@ -324,7 +340,7 @@ export default function AdminLayout({ children }) {
               ihdat
             </span>
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#C5A880] border border-[#C5A880] px-2 py-0.5">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#C5A880] border border-[#C5A880] px-2 py-0.5 rounded-lg">
             Admin
           </span>
         </header>

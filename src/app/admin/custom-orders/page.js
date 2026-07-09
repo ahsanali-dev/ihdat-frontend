@@ -63,7 +63,7 @@ export default function AdminCustomOrdersPage() {
       </div>
 
       {/* Main Table Container */}
-      <div className="bg-white border border-gray-200">
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-xs overflow-hidden">
         {loading && orders.length === 0 ? (
           <div className="p-6 space-y-4">
             {[...Array(5)].map((_, i) => (
@@ -129,7 +129,7 @@ export default function AdminCustomOrdersPage() {
                       {/* Selection details */}
                       <td className="px-6 py-4">
                         <div className="space-y-1">
-                          <span className="inline-block px-2 py-0.5 rounded-sm text-[8px] font-bold uppercase tracking-wider bg-[#C5A880]/15 text-black border border-[#C5A880]/30">
+                          <span className="inline-block px-2 py-0.5 rounded-lg text-[8px] font-bold uppercase tracking-wider bg-[#C5A880]/15 text-black border border-[#C5A880]/30">
                             {ord.targetAudience}
                           </span>
                           <p className="font-medium text-black">Fabric: {ord.fabric}</p>
@@ -139,7 +139,7 @@ export default function AdminCustomOrdersPage() {
 
                       {/* Measurements details */}
                       <td className="px-6 py-4">
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[10px] bg-zinc-50 p-2.5 border border-zinc-200/50">
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[10px] bg-zinc-50 p-2.5 border border-zinc-200/50 rounded-lg">
                           <div>Chest: <span className="font-bold text-black">{ord.chest}"</span></div>
                           <div>Shoulder: <span className="font-bold text-black">{ord.shoulder}"</span></div>
                           <div>Length: <span className="font-bold text-black">{ord.length}"</span></div>
@@ -169,7 +169,7 @@ export default function AdminCustomOrdersPage() {
                         <select
                           value={ord.status}
                           onChange={(e) => handleStatusChange(ord.id || ord._id, e.target.value)}
-                          className={`px-3 py-1.5 border text-[9px] font-bold uppercase tracking-wider focus:outline-none rounded-none transition-colors ${
+                          className={`px-3 py-1.5 border text-[9px] font-bold uppercase tracking-wider focus:outline-none rounded-lg transition-colors ${
                             ord.status === "Pending"
                               ? "bg-amber-50 text-amber-700 border-amber-200"
                               : ord.status === "In Discussion"
@@ -209,7 +209,7 @@ export default function AdminCustomOrdersPage() {
                   <div className="flex justify-between items-start">
                     <div className="space-y-0.5">
                       <p className="font-semibold text-black text-sm">{ord.name}</p>
-                      <span className="inline-block px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider bg-[#C5A880]/10 text-[#C5A880]">
+                      <span className="inline-block px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider bg-[#C5A880]/10 text-[#C5A880] rounded-lg">
                         {ord.targetAudience}
                       </span>
                     </div>
@@ -217,7 +217,7 @@ export default function AdminCustomOrdersPage() {
                     <select
                       value={ord.status}
                       onChange={(e) => handleStatusChange(ord.id || ord._id, e.target.value)}
-                      className={`px-2 py-1 border text-[8px] font-bold uppercase tracking-wider focus:outline-none rounded-none ${
+                      className={`px-2 py-1 border text-[8px] font-bold uppercase tracking-wider focus:outline-none rounded-lg ${
                         ord.status === "Pending"
                           ? "bg-amber-50 text-amber-700 border-amber-200"
                           : ord.status === "In Discussion"
@@ -250,7 +250,7 @@ export default function AdminCustomOrdersPage() {
                   </div>
 
                   {/* Measurements grid */}
-                  <div className="bg-zinc-50 border border-zinc-200/50 p-3 grid grid-cols-4 gap-2 font-mono text-[10px] text-center">
+                  <div className="bg-zinc-50 border border-zinc-200/50 p-3 grid grid-cols-4 gap-2 font-mono text-[10px] text-center rounded-lg">
                     <div>
                       <p className="text-gray-400 uppercase text-[8px]">Chest</p>
                       <p className="font-bold text-black">{ord.chest}"</p>
@@ -280,7 +280,7 @@ export default function AdminCustomOrdersPage() {
                   )}
 
                   {ord.specialInstructions && (
-                    <div className="bg-[#FAF6F0] p-3 border border-[#C5A880]/15 rounded-xs text-[11px] text-zinc-700 italic">
+                    <div className="bg-[#FAF6F0] p-3 border border-[#C5A880]/15 rounded-lg text-[11px] text-zinc-700 italic">
                       "{ord.specialInstructions}"
                     </div>
                   )}
@@ -292,7 +292,7 @@ export default function AdminCustomOrdersPage() {
                     </span>
                     <button
                       onClick={() => handleDelete(ord.id || ord._id)}
-                      className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50/50 hover:bg-rose-50 border border-rose-200/50 transition-colors"
+                      className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50/50 hover:bg-rose-50 border border-rose-200/50 transition-colors rounded-lg"
                     >
                       <Trash2 className="h-3.5 w-3.5" />
                       <span>Delete Request</span>
@@ -314,7 +314,7 @@ export default function AdminCustomOrdersPage() {
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
-                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center"
+                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center rounded-lg"
               >
                 <ChevronLeft className="h-3.5 w-3.5 mr-1" /> Prev
               </button>
@@ -326,7 +326,7 @@ export default function AdminCustomOrdersPage() {
                   <button
                     key={pageNum}
                     onClick={() => setCurrentPage(pageNum)}
-                    className={`px-3 py-1.5 border text-[10px] font-bold tracking-wider transition-all ${
+                    className={`px-3 py-1.5 border text-[10px] font-bold tracking-wider transition-all rounded-lg ${
                       currentPage === pageNum
                         ? "bg-[#C5A880] text-black border-[#C5A880]"
                         : "border-gray-200 text-black hover:bg-gray-50"
@@ -340,7 +340,7 @@ export default function AdminCustomOrdersPage() {
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(currentPage + 1)}
-                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center"
+                className="p-2 border border-gray-200 text-[10px] font-bold uppercase tracking-wider text-black hover:bg-gray-50 disabled:opacity-40 disabled:hover:bg-transparent transition-colors flex items-center rounded-lg"
               >
                 Next <ChevronRight className="h-3.5 w-3.5 ml-1" />
               </button>
@@ -356,14 +356,14 @@ export default function AdminCustomOrdersPage() {
             onClick={() => setActivePhoto(null)}
             className="absolute inset-0 bg-black/75 backdrop-blur-xs"
           />
-          <div className="relative bg-white p-3 shadow-2xl border border-gray-100 max-w-lg w-full z-10 flex flex-col items-center">
+          <div className="relative bg-white p-3 shadow-2xl border border-gray-100 max-w-lg w-full z-10 flex flex-col items-center rounded-2xl">
             <button
               onClick={() => setActivePhoto(null)}
               className="absolute -top-10 right-0 text-white hover:text-[#C5A880] transition-colors font-bold uppercase tracking-widest text-xs flex items-center"
             >
               Close <X className="h-5 w-5 ml-1" />
             </button>
-            <div className="relative aspect-square w-full bg-zinc-100 overflow-hidden border border-gray-200">
+            <div className="relative aspect-square w-full bg-zinc-100 overflow-hidden border border-gray-200 rounded-lg">
               <img
                 src={activePhoto}
                 alt="Suit Design Reference Uploaded"

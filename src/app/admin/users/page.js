@@ -71,7 +71,7 @@ export default function AdminUsersPage() {
       {loading ? (
         <div className="space-y-4">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left">
+            <div key={i} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 text-left rounded-2xl">
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-3 w-2/3">
                   <div className="p-2.5 bg-gray-50 border border-gray-100 rounded-full shrink-0">
@@ -96,7 +96,7 @@ export default function AdminUsersPage() {
         <>
           <div className="block md:hidden space-y-4">
         {paginatedUsers.map((user) => (
-          <div key={user.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4">
+          <div key={user.id} className="bg-white border border-gray-200 p-5 shadow-xs space-y-4 rounded-2xl">
             <div className="flex justify-between items-start">
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-gray-50 border border-gray-100 rounded-full text-gray-600">
@@ -141,104 +141,106 @@ export default function AdminUsersPage() {
       </div>
 
       {/* Desktop Users Table (Hidden on Mobile) */}
-      <div className="hidden md:block bg-white border border-gray-200 shadow-xs overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200 text-left text-xs">
-          <thead className="bg-gray-50">
-            <tr className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">
-              <th className="px-6 py-4">User Details</th>
-              <th className="px-6 py-4">Email Address</th>
-              <th className="px-6 py-4">Phone Number</th>
-              <th className="px-6 py-4">Location / City</th>
-              <th className="px-6 py-4 text-center">System Role</th>
-              <th className="px-6 py-4 text-center">Active Since</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 text-gray-700 bg-white">
-            {paginatedUsers.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-50/50 transition-colors">
-                {/* Name */}
-                <td className="px-6 py-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-gray-100 rounded-full text-gray-600 flex-shrink-0">
-                      <User className="h-4.5 w-4.5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-black text-sm">{user.name}</p>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-wider">{user.id}</p>
-                    </div>
-                  </div>
-                </td>
-
-                {/* Email */}
-                <td className="px-6 py-4">
-                  <div className="flex items-center space-x-1.5 font-medium text-gray-700">
-                    <Mail className="h-3.5 w-3.5 text-gray-400" />
-                    <span>{user.email}</span>
-                  </div>
-                </td>
-
-                {/* Phone */}
-                <td className="px-6 py-4">
-                  <div className="flex items-center space-x-1.5 font-medium text-gray-700">
-                    <Phone className="h-3.5 w-3.5 text-gray-400" />
-                    <span>{user.phone}</span>
-                  </div>
-                </td>
-
-                {/* Location */}
-                <td className="px-6 py-4">
-                  <div className="flex items-center space-x-1.5 text-gray-700">
-                    <MapPin className="h-3.5 w-3.5 text-gray-400" />
-                    <span className="truncate max-w-[200px]">{user.address ? `${user.address}, ${user.city}` : "N/A"}</span>
-                  </div>
-                </td>
-
-                {/* Role */}
-                <td className="px-6 py-4 text-center">
-                  <span
-                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${
-                      user.role === "admin"
-                        ? "bg-[#C5A880]/15 text-black border border-[#C5A880]/40"
-                        : "bg-gray-100 text-gray-600 border border-gray-200"
-                    }`}
-                  >
-                    {user.role === "admin" && <Shield className="h-3 w-3 text-black" />}
-                    {user.role}
-                  </span>
-                </td>
-
-                {/* Registered Date */}
-                <td className="px-6 py-4 text-center">
-                  <div className="flex items-center justify-center space-x-1.5 text-gray-500">
-                    <Calendar className="h-3.5 w-3.5 text-gray-400" />
-                    <span>{new Date(user.registeredAt).toLocaleDateString("en-US", {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric'
-                    })}</span>
-                  </div>
-                </td>
+      <div className="hidden md:block bg-white border border-gray-200 shadow-xs rounded-2xl overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200 text-left text-xs">
+            <thead className="bg-gray-50">
+              <tr className="text-gray-400 uppercase tracking-widest text-[9px] font-bold">
+                <th className="px-6 py-4">User Details</th>
+                <th className="px-6 py-4">Email Address</th>
+                <th className="px-6 py-4">Phone Number</th>
+                <th className="px-6 py-4">Location / City</th>
+                <th className="px-6 py-4 text-center">System Role</th>
+                <th className="px-6 py-4 text-center">Active Since</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100 text-gray-700 bg-white">
+              {paginatedUsers.map((user) => (
+                <tr key={user.id} className="hover:bg-gray-50/50 transition-colors">
+                  {/* Name */}
+                  <td className="px-6 py-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-gray-100 rounded-full text-gray-600 flex-shrink-0">
+                        <User className="h-4.5 w-4.5" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-black text-sm">{user.name}</p>
+                        <p className="text-[10px] text-gray-400 uppercase tracking-wider">{user.id}</p>
+                      </div>
+                    </div>
+                  </td>
+
+                  {/* Email */}
+                  <td className="px-6 py-4">
+                    <div className="flex items-center space-x-1.5 font-medium text-gray-700">
+                      <Mail className="h-3.5 w-3.5 text-gray-400" />
+                      <span>{user.email}</span>
+                    </div>
+                  </td>
+
+                  {/* Phone */}
+                  <td className="px-6 py-4">
+                    <div className="flex items-center space-x-1.5 text-gray-700">
+                      <Phone className="h-3.5 w-3.5 text-gray-400" />
+                      <span>{user.phone || "N/A"}</span>
+                    </div>
+                  </td>
+
+                  {/* Location */}
+                  <td className="px-6 py-4">
+                    <div className="flex items-center space-x-1.5 text-gray-700">
+                      <MapPin className="h-3.5 w-3.5 text-gray-400" />
+                      <span className="truncate max-w-[200px]">{user.address ? `${user.address}, ${user.city}` : "N/A"}</span>
+                    </div>
+                  </td>
+
+                  {/* Role */}
+                  <td className="px-6 py-4 text-center">
+                    <span
+                      className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${
+                        user.role === "admin"
+                          ? "bg-[#C5A880]/15 text-black border border-[#C5A880]/40"
+                          : "bg-gray-100 text-gray-600 border border-gray-200"
+                      }`}
+                    >
+                      {user.role === "admin" && <Shield className="h-3 w-3 text-black" />}
+                      {user.role}
+                    </span>
+                  </td>
+
+                  {/* Registered Date */}
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex items-center justify-center space-x-1.5 text-gray-500">
+                      <Calendar className="h-3.5 w-3.5 text-gray-400" />
+                      <span>{new Date(user.registeredAt).toLocaleDateString("en-US", {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-3 sm:px-6 rounded-lg mt-4">
           <div className="flex flex-1 justify-between sm:hidden">
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               Previous
             </button>
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              className="relative ml-3 inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative ml-3 inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               Next
             </button>
@@ -252,7 +254,7 @@ export default function AdminUsersPage() {
               </p>
             </div>
             <div>
-              <nav className="isolate inline-flex -space-x-px bg-white animate-fade-in" aria-label="Pagination">
+              <nav className="isolate inline-flex -space-x-px bg-white animate-fade-in rounded-lg overflow-hidden" aria-label="Pagination">
                 <button
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

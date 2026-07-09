@@ -107,7 +107,7 @@ export default function QuickViewModal() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", duration: 0.45, bounce: 0.1 }}
-              className="bg-[#FAF6F0] w-full max-w-4xl shadow-2xl relative grid grid-cols-1 md:grid-cols-2 overflow-hidden border border-[#E4E4E7]/30 rounded-none text-[#1E1E24]"
+              className="bg-[#FAF6F0] w-full max-w-4xl shadow-2xl relative grid grid-cols-1 md:grid-cols-2 overflow-hidden border border-[#E4E4E7]/30 rounded-2xl text-[#1E1E24]"
             >
               {/* Close Button */}
               <button
@@ -273,7 +273,7 @@ export default function QuickViewModal() {
                         <button
                           key={size}
                           onClick={() => setSelectedSize(size)}
-                          className={`min-w-10 h-8 px-2 flex items-center justify-center text-xs font-semibold tracking-wider transition-colors ${
+                          className={`min-w-10 h-8 px-2 flex items-center justify-center text-xs font-semibold tracking-wider transition-colors rounded-lg ${
                             selectedSize === size
                               ? "bg-[#1E1E24] text-[#FAF6F0] border border-[#1E1E24]"
                               : "bg-white text-[#71717A] border border-[#E4E4E7] hover:border-black hover:text-black"
@@ -288,7 +288,7 @@ export default function QuickViewModal() {
                   {/* Quantity & CTA add to bag */}
                   <div className="flex gap-4 pt-2">
                     {/* Quantity selectors */}
-                    <div className="flex items-center border border-[#E4E4E7] bg-white h-11 shrink-0">
+                    <div className="flex items-center border border-[#E4E4E7] bg-white h-11 shrink-0 rounded-lg overflow-hidden">
                       <button
                         onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                         className="px-3.5 text-[#71717A] hover:text-[#1E1E24] transition-colors font-bold"
@@ -310,7 +310,7 @@ export default function QuickViewModal() {
                     <button
                       onClick={handleAddToCart}
                       disabled={product.stock === 0}
-                      className="flex-grow h-11 bg-[#1E1E24] hover:bg-[#D4AF37] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2"
+                      className="flex-grow h-11 bg-[#1E1E24] hover:bg-[#D4AF37] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2 rounded-lg"
                     >
                       <ShoppingBag className="h-4 w-4" />
                       <span>

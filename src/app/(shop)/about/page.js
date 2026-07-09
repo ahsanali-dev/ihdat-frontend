@@ -40,7 +40,7 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <div className="md:col-span-5 relative aspect-3/4 bg-[#E4E4E7]/45 overflow-hidden shadow-md border border-gray-200/50">
+          <div className="md:col-span-5 relative aspect-3/4 bg-[#E4E4E7]/45 overflow-hidden shadow-md border border-gray-200/50 rounded-2xl">
             <Image
               src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600"
               alt="ihdat female model in velvet koti"
@@ -80,7 +80,7 @@ export default function AboutPage() {
         <div className="text-center pt-8 border-t border-gray-200/60">
           <Link
             href="/products"
-            className="inline-block px-10 py-4 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-md animate-pulse"
+            className="inline-block px-10 py-4 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-md animate-pulse rounded-lg"
           >
             Explore the Kotis Collection
           </Link>

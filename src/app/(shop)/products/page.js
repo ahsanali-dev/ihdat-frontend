@@ -101,7 +101,7 @@ function ProductListingContent() {
         </div>
 
         {/* Search Input */}
-        <div className="relative max-w-md w-full border border-[#E4E4E7] bg-white px-3 py-2 flex items-center shadow-xs">
+        <div className="relative max-w-md w-full border border-[#E4E4E7] bg-white px-3 py-2 flex items-center shadow-xs rounded-lg">
           <Search className="h-4 w-4 text-[#71717A] mr-2" />
           <input
             type="text"
@@ -122,7 +122,7 @@ function ProductListingContent() {
       </div>
 
       {/* Filter and Sort Panel */}
-      <div className="flex flex-col md:flex-row gap-6 justify-between items-start md:items-center bg-white border border-[#E4E4E7]/40 p-6 shadow-xs">
+      <div className="flex flex-col md:flex-row gap-6 justify-between items-start md:items-center bg-white border border-[#E4E4E7]/40 p-6 shadow-xs rounded-2xl">
         {/* Category Pills */}
         <div className="flex flex-wrap gap-2 items-center">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#71717A] mr-2 flex items-center">
@@ -132,7 +132,7 @@ function ProductListingContent() {
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`px-4 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors ${
+              className={`px-4 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors rounded-lg ${
                 selectedCategory === category
                   ? "bg-[#111111] text-[#FAF6F0]"
                   : "bg-[#FAF6F0] text-[#71717A] hover:bg-[#E4E4E7]/40"
@@ -153,7 +153,7 @@ function ProductListingContent() {
               id="sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="border border-[#E4E4E7] bg-white px-3 py-1.5 text-xs font-medium text-[#111111] focus:outline-none"
+              className="border border-[#E4E4E7] bg-white px-3 py-1.5 text-xs font-medium text-[#111111] focus:outline-none rounded-lg"
             >
               <option value="default">Release Date</option>
               <option value="price-low">Price: Low to High</option>

@@ -84,7 +84,7 @@ export default function CheckoutPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-white border border-[#E4E4E7]/60 p-8 md:p-12 shadow-xl space-y-8 flex flex-col items-center"
+          className="bg-white border border-[#E4E4E7]/60 p-8 md:p-12 shadow-xl space-y-8 flex flex-col items-center rounded-2xl"
         >
           <CheckCircle2 className="h-16 w-16 text-[#C5A880] stroke-[1.5]" />
           <div className="space-y-3">
@@ -94,7 +94,7 @@ export default function CheckoutPage() {
             <p className="text-sm text-[#71717A] tracking-wider">
               Thank you for shopping with **ihdat**. Your order has been registered successfully.
             </p>
-            <p className="text-xs font-semibold text-[#111111] bg-[#FAF6F0] px-4 py-2 border border-[#E4E4E7] inline-block tracking-widest uppercase">
+            <p className="text-xs font-semibold text-[#111111] bg-[#FAF6F0] px-4 py-2 border border-[#E4E4E7] inline-block tracking-widest uppercase rounded-lg">
               ORDER ID: {successOrder.id}
             </p>
           </div>
@@ -123,13 +123,13 @@ export default function CheckoutPage() {
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
             <Link
               href="/products"
-              className="px-6 py-3 border border-transparent text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-[#C5A880] hover:text-black transition-colors inline-flex items-center justify-center"
+              className="px-6 py-3 border border-transparent text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-[#C5A880] hover:text-black transition-colors inline-flex items-center justify-center rounded-lg"
             >
               Continue Shopping <ArrowRight className="h-3.5 w-3.5 ml-2" />
             </Link>
             <Link
               href="/track"
-              className="px-6 py-3 border border-[#E4E4E7] text-xs font-semibold uppercase tracking-widest text-[#111111] bg-[#FAF6F0] hover:bg-[#E4E4E7]/30 transition-colors inline-flex items-center justify-center"
+              className="px-6 py-3 border border-[#E4E4E7] text-xs font-semibold uppercase tracking-widest text-[#111111] bg-[#FAF6F0] hover:bg-[#E4E4E7]/30 transition-colors inline-flex items-center justify-center rounded-lg"
             >
               Track Order
             </Link>
@@ -152,7 +152,7 @@ export default function CheckoutPage() {
         </p>
         <Link
           href="/products"
-          className="inline-block px-8 py-3 border border-transparent text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-[#C5A880] hover:text-black transition-colors"
+          className="inline-block px-8 py-3 border border-transparent text-xs font-semibold uppercase tracking-widest text-white bg-[#111111] hover:bg-[#C5A880] hover:text-black transition-colors rounded-lg"
         >
           Explore Catalog
         </Link>
@@ -165,7 +165,7 @@ export default function CheckoutPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left Side: Checkout Form (Formik) - 7 cols */}
-        <div className="lg:col-span-7 bg-white border border-[#E4E4E7]/40 p-6 sm:p-10 shadow-xs space-y-8">
+        <div className="lg:col-span-7 bg-white border border-[#E4E4E7]/40 p-6 sm:p-10 shadow-xs space-y-8 rounded-2xl">
           <div className="space-y-2">
             <h2 className="font-serif text-2xl font-light uppercase tracking-wider text-[#1E1E24]">
               Shipping Details
@@ -201,7 +201,7 @@ export default function CheckoutPage() {
                     name="name"
                     id="name"
                     placeholder="Enter your full name"
-                    className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black"
+                    className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black rounded-lg"
                   />
                   <div className="text-[10px] font-bold text-[#7D1D2B]">
                     <ErrorMessage name="name" />
@@ -220,7 +220,7 @@ export default function CheckoutPage() {
                       name="email"
                       id="email"
                       placeholder="e.g. customer@example.com"
-                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black"
+                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black rounded-lg"
                     />
                     <div className="text-[10px] font-bold text-[#7D1D2B]">
                       <ErrorMessage name="email" />
@@ -237,7 +237,7 @@ export default function CheckoutPage() {
                       name="phone"
                       id="phone"
                       placeholder="e.g. +92 300 1234567"
-                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black"
+                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black rounded-lg"
                     />
                     <div className="text-[10px] font-bold text-[#7D1D2B]">
                       <ErrorMessage name="phone" />
@@ -255,7 +255,7 @@ export default function CheckoutPage() {
                     name="address"
                     id="address"
                     placeholder="Apartment, suite, street name, house number"
-                    className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black"
+                    className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black rounded-lg"
                   />
                   <div className="text-[10px] font-bold text-[#7D1D2B]">
                     <ErrorMessage name="address" />
@@ -274,7 +274,7 @@ export default function CheckoutPage() {
                       name="city"
                       id="city"
                       placeholder="e.g. Lahore / Islamabad / Karachi"
-                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black"
+                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black rounded-lg"
                     />
                     <div className="text-[10px] font-bold text-[#7D1D2B]">
                       <ErrorMessage name="city" />
@@ -291,7 +291,7 @@ export default function CheckoutPage() {
                       name="postalCode"
                       id="postalCode"
                       placeholder="e.g. 54000"
-                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black"
+                      className="w-full border border-[#E4E4E7] px-3.5 py-2.5 text-xs text-[#111111] placeholder-[#71717A] focus:outline-none focus:border-black rounded-lg"
                     />
                     <div className="text-[10px] font-bold text-[#7D1D2B]">
                       <ErrorMessage name="postalCode" />
@@ -306,7 +306,7 @@ export default function CheckoutPage() {
                   </span>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* COD Option */}
-                    <label className="border border-[#E4E4E7] p-4 flex items-start space-x-3 cursor-pointer bg-[#FAF6F0]/20 hover:border-black">
+                    <label className="border border-[#E4E4E7] p-4 flex items-start space-x-3 cursor-pointer bg-[#FAF6F0]/20 hover:border-black rounded-lg">
                       <Field
                         type="radio"
                         name="paymentMethod"
@@ -351,7 +351,7 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-12 bg-[#111111] hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center mt-6"
+                  className="w-full h-12 bg-[#111111] hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center mt-6 rounded-lg"
                 >
                   {isSubmitting ? "Processing..." : "Place Order"}
                 </button>
@@ -361,7 +361,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Right Side: Order Summary - 5 cols */}
-        <div className="lg:col-span-5 lg:sticky lg:top-22 bg-[#FAF6F0] border border-[#E4E4E7] p-6 space-y-6">
+        <div className="lg:col-span-5 lg:sticky lg:top-22 bg-[#FAF6F0] border border-[#E4E4E7] p-6 space-y-6 rounded-2xl">
           <div className="space-y-1">
             <h3 className="font-serif text-lg font-light uppercase tracking-wider text-[#111111]">
               Order Summary

@@ -30,7 +30,7 @@ export default function ProductCard({ product }) {
   return (
     <Link href={`/products/${product.id}`} className="group block space-y-4">
       {/* Visual Container */}
-      <div className="relative aspect-[3/4] bg-[#FAF6F0] overflow-hidden border border-[#E4E4E7]/40 shadow-xs">
+      <div className="relative aspect-[3/4] bg-[#FAF6F0] overflow-hidden border border-[#E4E4E7]/40 shadow-xs rounded-2xl">
         
         {/* Images with Fade Swap Transition */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none w-full h-full">
@@ -71,11 +71,11 @@ export default function ProductCard({ product }) {
         <div className="absolute top-4 right-4 flex flex-col items-end space-y-2 z-20">
           {/* Stock Badges */}
           {product.stock === 0 ? (
-            <span className="bg-[#1E1E24] text-[#FAF6F0] text-[8px] font-bold uppercase tracking-widest px-2.5 py-1">
+            <span className="bg-[#1E1E24] text-[#FAF6F0] text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-lg">
               Sold Out
             </span>
           ) : product.stock <= 15 ? (
-            <span className="bg-[#7D1D2B] text-white text-[8px] font-bold uppercase tracking-widest px-2.5 py-1">
+            <span className="bg-[#7D1D2B] text-white text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-lg">
               Low Stock
             </span>
           ) : null}
@@ -101,7 +101,7 @@ export default function ProductCard({ product }) {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleQuickView}
-            className="bg-[#FAF6F0] text-[#1E1E24] hover:bg-[#1E1E24] hover:text-[#FAF6F0] text-[10px] font-bold uppercase tracking-widest px-6 py-3 border border-[#1E1E24]/10 shadow-lg flex items-center space-x-2 transition-all duration-300"
+            className="bg-[#FAF6F0] text-[#1E1E24] hover:bg-[#1E1E24] hover:text-[#FAF6F0] text-[10px] font-bold uppercase tracking-widest px-6 py-3 border border-[#1E1E24]/10 shadow-lg flex items-center space-x-2 transition-all duration-300 rounded-lg"
           >
             <Eye className="h-3.5 w-3.5" />
             <span>Quick View</span>

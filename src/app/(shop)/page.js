@@ -81,13 +81,13 @@ export default function HomePage() {
           >
             <Link
               href="/products?category=Women%27s%20Kotis"
-              className="px-10 py-4 border border-transparent text-[10px] font-bold uppercase tracking-widest text-black bg-[#C5A880] hover:bg-white hover:text-black transition-colors w-full sm:w-auto shadow-md"
+              className="px-10 py-4 border border-transparent text-[10px] font-bold uppercase tracking-widest text-black bg-[#C5A880] hover:bg-white hover:text-black transition-colors w-full sm:w-auto shadow-md rounded-lg"
             >
               Explore Women's Kotis
             </Link>
             <Link
               href="/products?category=Kids%27%20Waistcoats"
-              className="px-10 py-4 border border-white/80 text-[10px] font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all w-full sm:w-auto"
+              className="px-10 py-4 border border-white/80 text-[10px] font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all w-full sm:w-auto rounded-lg"
             >
               Kids Waistcoats
             </Link>
@@ -121,7 +121,7 @@ export default function HomePage() {
           {/* Category 1: Women's Kotis */}
           <motion.div
             variants={fadeInUp}
-            className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100"
+            className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100 rounded-2xl"
           >
             <Image
               src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600"
@@ -159,7 +159,7 @@ export default function HomePage() {
           {/* Category 2: Kids' Waistcoats */}
           <motion.div
             variants={fadeInUp}
-            className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100"
+            className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100 rounded-2xl"
           >
             <Image
               src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600"
@@ -197,7 +197,7 @@ export default function HomePage() {
           {/* Category 3: Custom Jackets */}
           <motion.div
             variants={fadeInUp}
-            className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100"
+            className="group relative h-96 bg-gray-900 text-white flex flex-col justify-end p-8 overflow-hidden cursor-pointer shadow-sm border border-gray-100 rounded-2xl"
           >
             <Image
               src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600"
@@ -239,7 +239,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Left: Asymmetric Image Block featuring female model and kids waistcoat */}
           <div className="lg:col-span-7 grid grid-cols-12 gap-4">
-            <div className="col-span-8 relative aspect-[3/4] overflow-hidden group shadow-md border border-gray-100">
+            <div className="col-span-8 relative aspect-[3/4] overflow-hidden group shadow-md border border-gray-100 rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600"
                 alt="ihdat female model in velvet koti"
@@ -248,7 +248,7 @@ export default function HomePage() {
                 className="object-cover object-center transition-transform duration-1000 group-hover:scale-103"
               />
             </div>
-            <div className="col-span-4 relative aspect-3/4 mt-12 overflow-hidden group shadow-sm border border-gray-100">
+            <div className="col-span-4 relative aspect-3/4 mt-12 overflow-hidden group shadow-sm border border-gray-100 rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=600"
                 alt="Kids ethnic waistcoat design"
@@ -371,7 +371,7 @@ export default function HomePage() {
                 desc: "Custom sizing for suits"
               }
             ].map((spot, idx) => (
-              <div key={idx} className="group relative aspect-[4/5] bg-gray-150 overflow-hidden shadow-xs border border-gray-200/40">
+              <div key={idx} className="group relative aspect-[4/5] bg-gray-150 overflow-hidden shadow-xs border border-gray-200/40 rounded-2xl">
                 <Image
                   src={spot.url}
                   alt={spot.title}
@@ -435,7 +435,7 @@ export default function HomePage() {
 
       {/* 7. Pret & Suits Atelier Preview Showcase (Expansion Vision) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#FAF6F0] p-8 md:p-16 border border-gray-200/60 shadow-xs">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#FAF6F0] p-8 md:p-16 border border-gray-200/60 shadow-xs rounded-3xl">
           <div className="lg:col-span-6 space-y-6">
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#C5A880]">
               future pret atelier
@@ -450,20 +450,20 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
                 href="/custom-order"
-                className="px-8 py-3.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-sm"
+                className="px-8 py-3.5 bg-black hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-sm rounded-lg"
               >
                 Bespoke Custom Order Request
               </Link>
               <Link
                 href="/products"
-                className="px-8 py-3.5 border border-black hover:bg-black hover:text-white text-black text-xs font-bold uppercase tracking-widest transition-colors"
+                className="px-8 py-3.5 border border-black hover:bg-black hover:text-white text-black text-xs font-bold uppercase tracking-widest transition-colors rounded-lg"
               >
                 Explore Current Catalog
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative aspect-4/3 bg-gray-200 overflow-hidden shadow-md border border-gray-200">
+          <div className="lg:col-span-6 relative aspect-4/3 bg-gray-200 overflow-hidden shadow-md border border-gray-200 rounded-2xl">
             <Image
               src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800"
               alt="ihdat Pret Suit & Koti Set preview"

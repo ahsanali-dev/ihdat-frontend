@@ -185,14 +185,14 @@ export default function ProductDetailPage({ params }) {
 
       {/* Main product view grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        {/* Left Side: Product Gallery Visual with Hover Zoom & Swiper Slider */}
-        <div className="space-y-6">
+        {/* Left Side: Product Gallery Visual with Hover Zoom & Responsive Thumbnails */}
+        <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Main Visual Box with Zoom-on-Hover */}
           <div
             onMouseEnter={() => setIsZooming(true)}
             onMouseLeave={() => setIsZooming(false)}
             onMouseMove={handleMouseMove}
-            className="relative aspect-[3/4] bg-[#E4E4E7]/40 flex items-center justify-center border border-[#E4E4E7]/50 shadow-xs overflow-hidden cursor-zoom-in z-0"
+            className="relative flex-1 aspect-[3/4] bg-[#E4E4E7]/40 flex items-center justify-center border border-[#E4E4E7]/50 shadow-xs overflow-hidden cursor-zoom-in z-0 w-full rounded-2xl"
           >
             {activeImage === product.video ? (
               <video
@@ -227,7 +227,7 @@ export default function ProductDetailPage({ params }) {
             </div>
           </div>
 
-          {/* Swiper Slider thumbnails */}
+          {/* Thumbnails list */}
           {(() => {
             const mediaList = product.images ? [...product.images] : [];
             if (product.video && !mediaList.includes(product.video)) {
@@ -237,98 +237,45 @@ export default function ProductDetailPage({ params }) {
             if (mediaList.length <= 1) return null;
 
             return (
-              <div className="w-full overflow-hidden">
-                {isMounted ? (
-                  <Swiper
-                    spaceBetween={8}
-                    slidesPerView={4}
-                    freeMode={true}
-                    modules={[FreeMode]}
-                    className="mySwiper select-none"
-                  >
-                    {mediaList.map((mediaUrl, index) => {
-                      const isVideo = mediaUrl === product.video;
-                      return (
-                        <SwiperSlide key={index}>
-                          <button
-                            type="button"
-                            onClick={() => setActiveImage(mediaUrl)}
-                            className={`relative aspect-3/4 w-full overflow-hidden border bg-white flex items-center justify-center transition-all ${
-                              activeImage === mediaUrl
-                                ? "border-[#1E1E24] shadow-xs ring-1 ring-[#1E1E24]"
-                                : "border-gray-200 hover:border-gray-400"
-                            }`}
-                          >
-                            {isVideo ? (
-                              <div className="relative w-full h-full flex items-center justify-center bg-black">
-                                <Image
-                                  src={product.images?.[0] || "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600"}
-                                  alt="Video Thumbnail"
-                                  fill
-                                  sizes="(max-width: 768px) 25vw, 15vw"
-                                  className="object-cover object-center brightness-70"
-                                />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <Play className="h-6 w-6 text-white fill-white opacity-85" />
-                                </div>
-                              </div>
-                            ) : (
-                              <Image
-                                src={mediaUrl}
-                                alt={`${product.name} preview ${index + 1}`}
-                                fill
-                                sizes="(max-width: 768px) 25vw, 15vw"
-                                className="object-cover object-center"
-                              />
-                            )}
-                          </button>
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                ) : (
-                  /* Static SSR fallback row */
-                  <div className="flex gap-2 overflow-x-auto pb-1 select-none">
-                    {mediaList.map((mediaUrl, index) => {
-                      const isVideo = mediaUrl === product.video;
-                      return (
-                        <button
-                          key={index}
-                          type="button"
-                          onClick={() => setActiveImage(mediaUrl)}
-                          className={`relative aspect-3/4 w-20 shrink-0 overflow-hidden border bg-white flex items-center justify-center transition-all ${
-                            activeImage === mediaUrl
-                              ? "border-[#1E1E24] shadow-xs ring-1 ring-[#1E1E24]"
-                              : "border-gray-200 hover:border-gray-400"
-                          }`}
-                        >
-                          {isVideo ? (
-                            <div className="relative w-full h-full flex items-center justify-center bg-black">
-                              <Image
-                                src={product.images?.[0] || "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600"}
-                                alt="Video Thumbnail"
-                                fill
-                                sizes="80px"
-                                className="object-cover object-center brightness-70"
-                              />
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <Play className="h-4 w-4 text-white fill-white opacity-85" />
-                              </div>
-                            </div>
-                          ) : (
-                            <Image
-                              src={mediaUrl}
-                              alt={`${product.name} preview ${index + 1}`}
-                              fill
-                              sizes="80px"
-                              className="object-cover object-center"
-                            />
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
+              <div className="flex flex-row md:flex-col gap-2.5 overflow-x-auto md:overflow-y-auto shrink-0 w-full md:w-20 md:max-h-[500px] scrollbar-thin select-none py-1">
+                {mediaList.map((mediaUrl, index) => {
+                  const isVideo = mediaUrl === product.video;
+                  return (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setActiveImage(mediaUrl)}
+                      className={`relative aspect-[3/4] w-16 md:w-full shrink-0 overflow-hidden border bg-white flex items-center justify-center transition-all rounded-lg ${
+                        activeImage === mediaUrl
+                          ? "border-[#8E7045] shadow-xs ring-1 ring-[#8E7045]"
+                          : "border-gray-200 hover:border-gray-400"
+                      }`}
+                    >
+                      {isVideo ? (
+                        <div className="relative w-full h-full flex items-center justify-center bg-black">
+                          <Image
+                            src={product.images?.[0] || "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=600"}
+                            alt="Video Thumbnail"
+                            fill
+                            sizes="(max-width: 768px) 25vw, 15vw"
+                            className="object-cover object-center brightness-70"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Play className="h-4 w-4 text-white fill-white opacity-85" />
+                          </div>
+                        </div>
+                      ) : (
+                        <Image
+                          src={mediaUrl}
+                          alt={`${product.name} preview ${index + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 25vw, 15vw"
+                          className="object-cover object-center"
+                        />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             );
           })()}
@@ -390,7 +337,7 @@ export default function ProductDetailPage({ params }) {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`min-w-12 h-10 px-3 flex items-center justify-center text-xs font-semibold tracking-wider transition-colors ${
+                    className={`min-w-12 h-10 px-3 flex items-center justify-center text-xs font-semibold tracking-wider transition-colors rounded-lg ${
                       selectedSize === size
                         ? "bg-[#111111] text-[#FAF6F0] border border-[#111111]"
                         : "bg-white text-[#71717A] border border-[#E4E4E7] hover:border-black hover:text-black"
@@ -404,7 +351,7 @@ export default function ProductDetailPage({ params }) {
 
             {/* Quantity Selector & Add Button */}
             <div className="flex items-center space-x-4 max-w-sm pt-2">
-              <div className="flex items-center border border-[#E4E4E7] bg-white h-12">
+              <div className="flex items-center border border-[#E4E4E7] bg-white h-12 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                   className="px-4 py-2 text-[#71717A] hover:text-[#111111] transition-colors"
@@ -425,7 +372,7 @@ export default function ProductDetailPage({ params }) {
               <button
                 onClick={handleAddToCart}
                 disabled={product.stock === 0}
-                className="flex-1 h-12 bg-[#111111] hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2"
+                className="flex-1 h-12 bg-[#111111] hover:bg-[#C5A880] hover:text-black text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center space-x-2 rounded-lg"
               >
                 <ShoppingBag className="h-4 w-4" />
                 <span>{product.stock === 0 ? "Out of Stock" : addedNotice ? "Added!" : "Add to Cart"}</span>

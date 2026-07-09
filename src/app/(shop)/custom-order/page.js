@@ -121,7 +121,7 @@ export default function CustomOrderPage() {
         </div>
 
         {/* Form Container */}
-        <div className="bg-white p-8 sm:p-12 border border-[#E4E4E7] shadow-sm">
+        <div className="bg-white p-8 sm:p-12 border border-[#E4E4E7] shadow-sm rounded-2xl">
           <AnimatePresence mode="wait">
             {!submitted ? (
               <Formik
@@ -162,7 +162,7 @@ export default function CustomOrderPage() {
                           <Field
                             name="customerName"
                             placeholder="Your Name"
-                            className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white"
+                            className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                           />
                           <div className="text-[10px] text-rose-600 font-bold"><ErrorMessage name="customerName" /></div>
                         </div>
@@ -172,7 +172,7 @@ export default function CustomOrderPage() {
                             name="email"
                             type="email"
                             placeholder="name@example.com"
-                            className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white"
+                            className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                           />
                           <div className="text-[10px] text-rose-600 font-bold"><ErrorMessage name="email" /></div>
                         </div>
@@ -181,7 +181,7 @@ export default function CustomOrderPage() {
                           <Field
                             name="phone"
                             placeholder="+92 300 1234567"
-                            className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white"
+                            className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg"
                           />
                           <div className="text-[10px] text-rose-600 font-bold"><ErrorMessage name="phone" /></div>
                         </div>
@@ -196,7 +196,7 @@ export default function CustomOrderPage() {
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Target Audience</label>
-                          <Field as="select" name="targetAudience" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white">
+                          <Field as="select" name="targetAudience" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg">
                             <option value="Women's Koti">Women's Koti</option>
                             <option value="Kids' Waistcoat">Kids' Waistcoat</option>
                           </Field>
@@ -204,7 +204,7 @@ export default function CustomOrderPage() {
 
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Fabric Choice</label>
-                          <Field as="select" name="fabric" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white">
+                          <Field as="select" name="fabric" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg">
                             <option value="Plush Velvet">Plush Velvet</option>
                             <option value="Banarsi Brocade">Banarsi Brocade</option>
                             <option value="Pure Raw Silk">Pure Raw Silk</option>
@@ -214,7 +214,7 @@ export default function CustomOrderPage() {
 
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Embroidery Type</label>
-                          <Field as="select" name="embroidery" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white">
+                          <Field as="select" name="embroidery" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg">
                             <option value="Gold Zari Threadwork">Gold Zari Threadwork</option>
                             <option value="Antique Tilla Work">Antique Tilla Work</option>
                             <option value="Handmade Mirror Work">Handmade Mirror Work</option>
@@ -232,25 +232,25 @@ export default function CustomOrderPage() {
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Chest / Bust (in)</label>
-                          <Field name="chest" type="number" step="0.5" placeholder="e.g. 36" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white" />
+                          <Field name="chest" type="number" step="0.5" placeholder="e.g. 36" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg" />
                           <div className="text-[10px] text-rose-600 font-bold"><ErrorMessage name="chest" /></div>
                         </div>
 
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Shoulder Width (in)</label>
-                          <Field name="shoulder" type="number" step="0.5" placeholder="e.g. 14.5" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white" />
+                          <Field name="shoulder" type="number" step="0.5" placeholder="e.g. 14.5" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg" />
                           <div className="text-[10px] text-rose-600 font-bold"><ErrorMessage name="shoulder" /></div>
                         </div>
 
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Koti Length (in)</label>
-                          <Field name="length" type="number" step="0.5" placeholder="e.g. 18" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white" />
+                          <Field name="length" type="number" step="0.5" placeholder="e.g. 18" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg" />
                           <div className="text-[10px] text-rose-600 font-bold"><ErrorMessage name="length" /></div>
                         </div>
 
                         <div className="space-y-1">
                           <label className="text-[9px] font-bold uppercase tracking-wider text-gray-500 block">Waist (in, optional)</label>
-                          <Field name="waist" type="number" step="0.5" placeholder="e.g. 32" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white" />
+                          <Field name="waist" type="number" step="0.5" placeholder="e.g. 32" className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white rounded-lg" />
                         </div>
                       </div>
                     </div>
@@ -262,7 +262,7 @@ export default function CustomOrderPage() {
                       </h3>
                       <p className="text-xs text-gray-500">Upload a picture of the suit/kurti you want to match this koti with:</p>
 
-                      <div className="border-2 border-dashed border-gray-200 p-6 text-center bg-gray-50/50 hover:bg-white transition-colors cursor-pointer relative">
+                      <div className="border-2 border-dashed border-gray-200 p-6 text-center bg-gray-50/50 hover:bg-white transition-colors cursor-pointer relative rounded-lg">
                         <input
                           type="file"
                           accept="image/*"
@@ -300,7 +300,7 @@ export default function CustomOrderPage() {
                         rows="3"
                         name="specialInstructions"
                         placeholder="Specify any additional customization requirements..."
-                        className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white resize-none"
+                        className="w-full border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:border-black bg-white resize-none rounded-lg"
                       />
                     </div>
 
@@ -308,7 +308,7 @@ export default function CustomOrderPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting || uploading}
-                      className="w-full py-4 bg-[#1E1E24] hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-md flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full py-4 bg-[#1E1E24] hover:bg-[#C5A880] hover:text-black text-white text-xs font-bold uppercase tracking-widest transition-colors shadow-md flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
                     >
                       {isSubmitting || uploading ? (
                         <span className="inline-block animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full mr-2" />

@@ -63,9 +63,9 @@ export default function OrderTrackingPage() {
       </div>
 
       {/* Lookup Form */}
-      <div className="max-w-md mx-auto bg-white border border-[#E4E4E7]/60 p-6 shadow-xs">
+      <div className="max-w-md mx-auto bg-white border border-[#E4E4E7]/60 p-6 shadow-xs rounded-2xl">
         <form onSubmit={handleSearchSubmit} className="flex gap-x-2">
-          <div className="relative flex-1 border border-[#E4E4E7] bg-[#FAF6F0]/20 px-3 py-2.5 flex items-center">
+          <div className="relative flex-1 border border-[#E4E4E7] bg-[#FAF6F0]/20 px-3 py-2.5 flex items-center rounded-lg">
             <Search className="h-4 w-4 text-[#71717A] mr-2" />
             <input
               type="text"
@@ -78,7 +78,7 @@ export default function OrderTrackingPage() {
           </div>
           <button
             type="submit"
-            className="bg-black text-[#FAF6F0] px-6 py-2.5 text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A880] hover:text-black transition-colors"
+            className="bg-black text-[#FAF6F0] px-6 py-2.5 text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A880] hover:text-black transition-colors rounded-lg"
           >
             Track
           </button>
@@ -96,7 +96,7 @@ export default function OrderTrackingPage() {
             className="max-w-2xl mx-auto"
           >
             {loading ? (
-              <div className="bg-white border border-[#E4E4E7]/60 p-8 shadow-md space-y-10 text-left">
+              <div className="bg-white border border-[#E4E4E7]/60 p-8 shadow-md space-y-10 text-left rounded-2xl">
                 {/* Header Skeleton */}
                 <div className="flex justify-between items-center border-b border-gray-100 pb-4">
                   <div className="space-y-2 w-1/3">
@@ -134,7 +134,7 @@ export default function OrderTrackingPage() {
                 </div>
               </div>
             ) : error || !foundOrder ? (
-              <div className="bg-rose-50 border border-rose-200 text-rose-800 p-6 flex items-start space-x-3 text-xs leading-relaxed">
+              <div className="bg-rose-50 border border-rose-200 text-rose-800 p-6 flex items-start space-x-3 text-xs leading-relaxed rounded-lg">
                 <AlertCircle className="h-5 w-5 text-rose-600 flex-shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <h4 className="font-bold uppercase tracking-wider">No Order Found</h4>
@@ -144,7 +144,7 @@ export default function OrderTrackingPage() {
                 </div>
               </div>
             ) : (
-              <div className="bg-white border border-[#E4E4E7]/60 p-8 shadow-md space-y-10">
+              <div className="bg-white border border-[#E4E4E7]/60 p-8 shadow-md space-y-10 rounded-2xl">
                 {/* Order Summary Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-100 pb-4 gap-2">
                   <div className="space-y-1">
@@ -163,7 +163,7 @@ export default function OrderTrackingPage() {
                 <div className="space-y-6">
                   <h4 className="text-xs font-bold uppercase tracking-widest text-black"> Fulfill Status</h4>
                   {foundOrder.status === "Cancelled" ? (
-                    <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-sm text-xs flex items-center space-x-2">
+                    <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-lg text-xs flex items-center space-x-2">
                       <AlertCircle className="h-4 w-4 text-rose-600" />
                       <span>This order has been **Cancelled** and will not be shipped.</span>
                     </div>
